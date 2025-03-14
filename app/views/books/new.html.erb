@@ -14,11 +14,11 @@
   </div>
 
   <div class="form-group">
-    <%= f.input :condition, label: "Condição", collection: [["Novo", 0], ["Usado", 1]], include_blank: "Selecione" %>
+    <%= f.input :condition, label: "Condição", collection: Book.conditions, include_blank: "Selecione" %>
   </div>
 
   <div class="form-group">
-    <%= f.input :genre_id, label: "Gênero", collection: @genres.map { |g| [g.name, g.id] }, include_blank: "Selecione" %>
+    <%= f.input :tag_list, label: "Gênero", collection: Book::GENRES, include_blank: "Selecione" %>
   </div>
 
   <div class="form-group">

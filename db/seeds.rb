@@ -7,9 +7,3 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
-Genre.destroy_all
-
-genres = ["Ficção científica", "Finanças", "Drama", "Terror"]
-genres.each do |genre|
-  Genre.find_or_create_by(name: genre)
-end

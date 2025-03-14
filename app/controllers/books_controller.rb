@@ -3,17 +3,20 @@ class BooksController < ApplicationController
 
   def new
     @book = Book.new
-    @genres= Genre.all
   end
 
   def create
     @book = Book.new(book_params)
-    @book.user = current_user
-    if @book.save
-      redirect_to books_path, notice: "Successfully created book"
-    else
-      @genres = Genre.all
+    if @book.tag_list.empty?
       render :new, status: :unprocessable_entity
+    else
+      @book.user = current_user
+      @book.tag_list = book_params[:tag_list]
+      if @book.save
+        redirect_to books_path, notice: "Successfully created book"
+      else
+        render :new, status: :unprocessable_entity
+      end
     end
   end
 
@@ -39,6 +42,6 @@ class BooksController < ApplicationController
   end
 
   def book_params
-    params.require(:book).permit(:title, :author, :publisher, :condition, :genre_id)
+    params.require(:book).permit(:title, :author, :publisher, :condition, :tag_list)
   end
 end

@@ -1,0 +1,23 @@
+=> 
+[[32m#<Book:0x00007f0bafca3340[0m
+  id: [34m[1m1[0m,
+  title: [31m[1m"[0m[31mSenhor dos anéis[0m[31m[1m"[0m,
+  author: [31m[1m"[0m[31mJ R R Tolkien[0m[31m[1m"[0m,
+  publisher: [31m[1m"[0m[31mAbril[0m[31m[1m"[0m,
+  condition: [34m[1m0[0m,
+  user_id: [34m[1m1[0m,
+  created_at: Fri, 14 Mar 2025 16:52:45.450061000 UTC +00:00,
+  updated_at: Fri, 14 Mar 2025 16:52:45.450061000 UTC +00:00,
+  tag_list: [36m[1mnil[0m,
+  genre_list: [36m[1mnil[0m[32m>[0m,
+ [32m#<Book:0x00007f0bafca3200[0m
+  id: [34m[1m2[0m,
+  title: [31m[1m"[0m[31mSenhor dos anéis[0m[31m[1m"[0m,
+  author: [31m[1m"[0m[31mJ R R Tolkien[0m[31m[1m"[0m,
+  publisher: [31m[1m"[0m[31mAbril[0m[31m[1m"[0m,
+  condition: [34m[1m0[0m,
+  user_id: [34m[1m1[0m,
+  created_at: Fri, 14 Mar 2025 16:59:45.331414000 UTC +00:00,
+  updated_at: Fri, 14 Mar 2025 16:59:45.331414000 UTC +00:00,
+  tag_list: [36m[1mnil[0m,
+  genre_list: [36m[1mnil[0m[32m>[0m]
