@@ -6,8 +6,6 @@
   <li>Condição: <%= @book.condition %></li>
 </ul>
 
-<%= link_to "Voltar", books_path %>
+<%= link_to "Aceitar", books_path %>
 
-<%= button_to "Editar Livro", edit_book_path(@book), method: :get %>
-
-<%= button_to "Excluir Livro", book_path(@book), method: :delete %>
+<%= link_to "Recusar", book_path(@book) %>
