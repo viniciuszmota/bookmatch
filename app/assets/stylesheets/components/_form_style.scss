@@ -4,8 +4,8 @@
   font-size: 12px;
 
   input {
-    width: 300px;
-    height: 30px;
+    width: 327px;
+    height: 40px;
     border: none;
     border-radius: 8px;
     background: #FFFCFC;
@@ -36,7 +36,15 @@
 
 .btn {
   font-size: 12px;
-    color: #FFFCFC;
+  color: #FFFCFC;
+  border: none; 
+  text-decoration: none;
+  background: none;
+  transition: transform 0.1s ease-in-out;
+}
+
+.btn:active {
+  transform: scale(0.95);
 }
 
 
