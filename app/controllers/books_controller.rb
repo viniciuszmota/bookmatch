@@ -12,6 +12,7 @@ class BooksController < ApplicationController
     if @book.save
       redirect_to books_path, notice: "Successfully created book"
     else
+      @genres = Genre.all
       render :new, status: :unprocessable_entity
     end
   end
