@@ -1,0 +1,326 @@
+.continue-blue-button {
+  display: flex;
+  width: 327px;
+  height: 40px;
+  padding: 0px 16px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  align-self: stretch;
+  border-radius: 8px;
+  background: #2AA7F0;
+}
+
+.continue-green-button {
+  display: flex;
+  width: 327px;
+  height: 40px;
+  padding: 0px 16px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  align-self: stretch;
+  border-radius: 8px;
+  background: #00C6AE;
+}
+
+.continue-yellow-button {
+  display: flex;
+  width: 327px;
+  height: 40px;
+  padding: 0px 16px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  align-self: stretch;
+  border-radius: 8px;
+  background: #F6ECA6;
+
+}
+
+.create-account-button {
+  display: flex;
+  width: 327px;
+  height: 40px;
+  padding: 0px 16px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  align-self: stretch;
+  border-radius: 8px;
+  background: #00C6AE;
+}
+
+.advance-button {
+  display: flex;
+  width: 327px;
+  height: 40px;
+  padding: 0px 16px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  align-self: stretch;
+  border-radius: 8px;
+  background: #00C6AE;
+}
+
+.google-button {
+  display: flex;
+  width: 327px;
+  height: 40px;
+  padding: 10px;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  border-radius: 8px;
+  background: #FFF;
+  cursor: pointer;
+  gap: 10px;
+  transition: background 0.3s ease, transform 0.1s ease;
+
+
+  .google-button:hover {
+   background: rgba(0, 0, 0, 0.05);
+  }
+
+  .google-button:active {
+    transform: scale(0.95);
+  }
+
+  .google-logo {
+    width: 20px;
+    height: 20px;
+    background: url(logo-google.png) -5.767px -5.82px / 158.73% 158.73% no-repeat;
+    margin-right: 10px;
+  }
+
+  .google-button span {
+   font-size: 14px;
+   font-weight: bold;
+    color: #333;
+  }
+
+}
+
+.apple-button {
+  display: flex;
+  width: 327px;
+  height: 40px;
+  padding: 10px;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  border-radius: 8px;
+  background: #FFF;
+  cursor: pointer;
+  gap: 10px;
+  transition: background 0.3s ease, transform 0.1s ease;
+
+  .apple-button:hover {
+   background: rgba(0, 0, 0, 0.05);
+  }
+
+  .apple-button:active {
+    transform: scale(0.95);
+  }
+
+  .apple-logo {
+    width: 20px;
+    height: 20px;
+    background: url(logo-apple.png) -5.767px -5.82px / 158.73% 158.73% no-repeat;
+    margin-right: 10px;
+  }
+
+
+  .apple-button span {
+   font-size: 14px;
+   font-weight: bold;
+    color: #333;
+  }
+
+}
+
+.add-book-button {
+  display: flex;
+  width: 327px;
+  height: 40px;
+  padding: 0px 16px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  align-self: stretch;
+  border-radius: 8px;
+  background: #00C6AE;
+}
+
+.add-book-profile-button {
+  width: 100px;
+  height: 49px;
+  flex-shrink: 0;
+  background-color: #FFF;
+}
+
+.isbn-button {
+  display: flex;
+  width: 327px;
+  height: 40px;
+  padding: 0px 16px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  align-self: stretch;
+  border-radius: 8px;
+  background: #00C6AE;
+
+}
+
+.add-isbn-manual-button {
+  display: flex;
+  width: 327px;
+  height: 40px;
+  padding: 0px 16px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  align-self: stretch;
+  border-radius: 8px;
+  background: #00C6AE;
+
+}
+
+.isb-scanner-button {
+  display: flex;
+  width: 327px;
+  height: 40px;
+  padding: 0px 16px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+  border-radius: 8px;
+  border: 1px solid #00C6AE;
+  background: #191919;
+
+}
+
+.introduce-isbn-button {
+  display: flex;
+  width: 327px;
+  height: 40px;
+  padding: 0px 16px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+  border-radius: 8px;
+  background: #FFF;
+
+}
+
+.try-again-button {
+  display: flex;
+  width: 327px;
+  height: 40px;
+  padding: 0px 16px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+  border-radius: 8px;
+  border: 1px solid #00C6AE;
+  background: #191919;
+
+}
+
+.edit-book-button {
+  display: flex;
+  width: 327px;
+  height: 40px;
+  padding: 0px 16px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+  border-radius: 8px;
+  background: #F6ECA6;
+}
+
+.edit-book-profile-button {
+  width: 100px;
+  height: 49px;
+  flex-shrink: 0;
+  background-color: #FFF;
+}
+
+.delete-book-button {
+  display: flex;
+  width: 327px;
+  height: 40px;
+  padding: 0px 16px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.delete-book-profile-button {
+  width: 100px;
+  height: 49px;
+  flex-shrink: 0;
+  background-color: #FFF;
+
+}
+
+
+
+.book-select-button {
+  display: flex;
+  width: 327px;
+  height: 40px;
+  padding: 0px 16px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+  border-radius: 8px;
+  background: #FFF;
+
+}
+
+.profile-button {
+  display: flex;
+  width: 327px;
+  height: 80px;
+  background: #FFF;
+  border-radius: 8px;
+  overflow: hidden;
+
+  a {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: #262626;
+    gap: 4px;
+    text-align: center;
+    font-family: Inter;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 150%;
+
+    svg {
+      width: 24px;
+      height: 24px;
+      stroke: #191919;
+    }
+
+    &:nth-child(1),
+    &:nth-child(2)
+    &:nth-child(3) {
+      border-right: 1px solid rgba(0, 0, 0, 0.2);
+    }
+  }
+}
