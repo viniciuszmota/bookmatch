@@ -1,11 +1,11 @@
 class BooksController < ApplicationController
   before_action :set_book, only: %i[show edit update]
-  
+
   def new
     @book = Book.new
     @genres= Genre.all
   end
-  
+
   def create
     @book = Book.new(book_params)
     @book.user = current_user
@@ -18,16 +18,6 @@ class BooksController < ApplicationController
 
   def index
     @books = Book.all
-  end
-  
-  private
-  
-  def set_book
-    @book = Book.find(params[:id])
-  end
-  
-  def book_params
-    params.require(:book).permit(:title, :author, :publisher, :condition, :genre_id)
   end
 
   def show
