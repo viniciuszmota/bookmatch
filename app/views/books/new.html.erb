@@ -1,0 +1,29 @@
+<h1>Adicionar Novo Livro</h1>
+
+<%= simple_form_for @book do |f| %>
+  <div class="form-group">
+    <%= f.input :title, label: "Título do Livro" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.input :author, label: "Autor" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.input :publisher, label: "Editora" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.input :condition, label: "Condição", collection: [["Novo", 0], ["Usado", 1]], include_blank: "Selecione" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.input :genre_id, label: "Gênero", collection: @genres.map { |g| [g.name, g.id] }, include_blank: "Selecione" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.submit "Salvar Livro", class: "btn btn-primary" %>
+  </div>
+<% end %>
+
+<%= link_to "Voltar", books_path, class: "btn btn-secondary" %>
