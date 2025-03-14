@@ -1,0 +1,21 @@
+<h2>Edite seu livro</h2>
+
+<%= simple_form_for @book do |f| %>
+
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="form-inputs">
+    <%= f.input :title %>
+    <%= f.input :author %>
+    <%= f.input :publisher %>
+    <%= f.input :condition %>
+    <%= f.input :genre_id, as: :select, collection: Genre.all %>
+    <%= f.input :photo, label: "Foto", as: :file %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+    <%= link_to 'Voltar', books_path %>
+  </div>
+<% end %>

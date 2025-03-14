@@ -1,0 +1,13 @@
+<h2>Detalhes do Livro</h2>
+
+<ul>
+  <li>Título: <%= @book.title %></li>
+  <li>Autor: <%= @book.author %></li>
+  <li>Condição: <%= @book.condition %></li>
+</ul>
+
+<%= link_to "Voltar", books_path %>
+
+<%= button_to "Editar Livro", edit_book_path(@book), method: :get %>
+
+<%= button_to "Excluir Livro", book_path(@book), method: :delete %>
