@@ -1,42 +1,67 @@
 .login-container {
-display: inline-flex;
-padding: 0px 24px;
-flex-direction: column;
-align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 24px;
+  width: 100%;
+  height: 100vh;
+  color: $font-color;
+}
+.login-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 80px;
+  margin-bottom: 20px;
+}
+
+.login-logo img {
+  width: 300px;
+  height: 40px;
 }
 
 .login-form {
-width: 431px;
-height: 100%;
-margin-top: 113px;
-margin-bottom: 107px;
+  display: flex;
+  width: 100%;
+  max-width: 431px;
+  margin-bottom: 20vh;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 16px;
 }
 
-.login-header {
-text-align: center;
-font-style: normal;
-font-weight: 400;
-line-height: 150%;
-margin-top: 113px;
-margin-bottom: 24px;
+
+.login-top {
+  display: flex;
+  justify-content: center; /* Centraliza horizontalmente */
+  align-items: center; /* Centraliza verticalmente */
+  text-align: center; /* Centraliza o texto */
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  margin-top: 8vh;
+  margin-bottom: 10px;
+  width: 100%;
+  font-size: 12px;
+  flex-direction: column; /* Garante que o texto fique alinhado corretamente */
 }
 
 .login-or {
-width: 327px;
-height: 20px;
-justify-content: center;
-align-items: center;
-gap: 8px;
-margin-top: 33px;
-margin-bottom: 33px;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 2vh;
+  font-size: 12px
 }
 
 .login-terms {
-width: 327px;
-height: 54px;
-justify-content: center;
-align-items: center;
-gap: 8px;
-margin-top: 24px;
-margin-bottom: 107px;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  margin-top: 3vh;
+  margin-bottom: 10vh;
+  font-size: 10px;
 }
