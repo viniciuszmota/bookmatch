@@ -42,6 +42,19 @@ ActiveRecord::Schema[7.1].define(version: 2025_03_14_133628) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "books", force: :cascade do |t|
+    t.string "title"
+    t.string "author"
+    t.string "publisher"
+    t.integer "condition"
+    t.bigint "genre_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["genre_id"], name: "index_books_on_genre_id"
+    t.index ["user_id"], name: "index_books_on_user_id"
+  end
+
   create_table "genres", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -67,4 +80,6 @@ ActiveRecord::Schema[7.1].define(version: 2025_03_14_133628) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "books", "genres"
+  add_foreign_key "books", "users"
 end
