@@ -10,7 +10,7 @@
     <%= f.input :author %>
     <%= f.input :publisher %>
     <%= f.input :condition %>
-    <%= f.input :genre_id, as: :select, collection: Genre.all %>
+    <%= f.input :tag_list, as: :select, collection: ['fantasia', 'terror'] %>
     <%= f.input :photo, label: "Foto", as: :file %>
   </div>
 

@@ -18,7 +18,7 @@
   </div>
 
   <div class="form-group">
-    <%= f.input :genre_id, label: "Gênero", collection: @genres.map { |g| [g.name, g.id] }, include_blank: "Selecione" %>
+    <%= f.input :tag_list, label: "Gênero", collection: ["fantasia", "terror"], include_blank: "Selecione" %>
   </div>
 
   <div class="form-group">
