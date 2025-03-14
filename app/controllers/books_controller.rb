@@ -15,6 +15,9 @@ class BooksController < ApplicationController
       render :new, status: :unprocessable_entity
     end
   end
+  def index
+    @books = Book.all
+  end
   
   private
   
@@ -25,4 +28,7 @@ class BooksController < ApplicationController
   def book_params
     params.require(:book).permit(:title, :author, :publisher, :condition, :genre_id)
   end
+
+  
+
 end
