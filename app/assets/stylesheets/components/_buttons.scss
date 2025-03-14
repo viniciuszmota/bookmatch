@@ -1,7 +1,7 @@
 .continue-blue-button {
   display: flex;
-  width: 327px;
-  height: 40px;
+  width: 300px;
+  height: 30px;
   padding: 0px 16px;
   justify-content: center;
   align-items: center;
@@ -13,8 +13,8 @@
 
 .continue-green-button {
   display: flex;
-  width: 327px;
-  height: 40px;
+  width: 300px;
+  height: 30px;
   padding: 0px 16px;
   justify-content: center;
   align-items: center;
@@ -22,12 +22,13 @@
   align-self: stretch;
   border-radius: 8px;
   background: #00C6AE;
+
 }
 
 .continue-yellow-button {
   display: flex;
-  width: 327px;
-  height: 40px;
+  width: 300px;
+  height: 30px;
   padding: 0px 16px;
   justify-content: center;
   align-items: center;
@@ -40,8 +41,8 @@
 
 .create-account-button {
   display: flex;
-  width: 327px;
-  height: 40px;
+  width: 300px;
+  height: 30px;
   padding: 0px 16px;
   justify-content: center;
   align-items: center;
@@ -53,8 +54,8 @@
 
 .advance-button {
   display: flex;
-  width: 327px;
-  height: 40px;
+  width: 300px;
+  height: 30px;
   padding: 0px 16px;
   justify-content: center;
   align-items: center;
@@ -66,84 +67,54 @@
 
 .google-button {
   display: flex;
-  width: 327px;
-  height: 40px;
+  width: 300px;
+  height: 30px;
   padding: 10px;
   justify-content: center;
   align-items: center;
   flex-shrink: 0;
   border-radius: 8px;
   background: #FFF;
+  color: #161616;
+  font-size: 12px;
   cursor: pointer;
   gap: 10px;
   transition: background 0.3s ease, transform 0.1s ease;
 
-
-  .google-button:hover {
-   background: rgba(0, 0, 0, 0.05);
-  }
-
-  .google-button:active {
-    transform: scale(0.95);
-  }
-
-  .google-logo {
+  .google-icon {
     width: 20px;
     height: 20px;
-    background: url(logo-google.png) -5.767px -5.82px / 158.73% 158.73% no-repeat;
-    margin-right: 10px;
   }
-
-  .google-button span {
-   font-size: 14px;
-   font-weight: bold;
-    color: #333;
-  }
-
 }
 
 .apple-button {
   display: flex;
-  width: 327px;
-  height: 40px;
+  width: 300px;
+  height: 30px;
   padding: 10px;
   justify-content: center;
   align-items: center;
   flex-shrink: 0;
   border-radius: 8px;
   background: #FFF;
+  color: #161616;
+  font-size: 12px;
+  margin-top: 10px;
   cursor: pointer;
   gap: 10px;
   transition: background 0.3s ease, transform 0.1s ease;
 
-  .apple-button:hover {
-   background: rgba(0, 0, 0, 0.05);
-  }
-
-  .apple-button:active {
-    transform: scale(0.95);
-  }
-
-  .apple-logo {
-    width: 20px;
+  .apple-icon {
+    width: 20px; 
     height: 20px;
-    background: url(logo-apple.png) -5.767px -5.82px / 158.73% 158.73% no-repeat;
-    margin-right: 10px;
-  }
-
-
-  .apple-button span {
-   font-size: 14px;
-   font-weight: bold;
-    color: #333;
   }
 
 }
 
 .add-book-button {
   display: flex;
-  width: 327px;
-  height: 40px;
+  width: 300px;
+  height: 30px;
   padding: 0px 16px;
   justify-content: center;
   align-items: center;
@@ -162,8 +133,8 @@
 
 .isbn-button {
   display: flex;
-  width: 327px;
-  height: 40px;
+  width: 300px;
+  height: 30px;
   padding: 0px 16px;
   justify-content: center;
   align-items: center;
@@ -176,8 +147,8 @@
 
 .add-isbn-manual-button {
   display: flex;
-  width: 327px;
-  height: 40px;
+  width: 300px;
+  height: 30px;
   padding: 0px 16px;
   justify-content: center;
   align-items: center;
@@ -190,8 +161,8 @@
 
 .isb-scanner-button {
   display: flex;
-  width: 327px;
-  height: 40px;
+  width: 300px;
+  height: 30px;
   padding: 0px 16px;
   justify-content: center;
   align-items: center;
@@ -205,8 +176,8 @@
 
 .introduce-isbn-button {
   display: flex;
-  width: 327px;
-  height: 40px;
+  width: 300px;
+  height: 30px;
   padding: 0px 16px;
   justify-content: center;
   align-items: center;
@@ -219,8 +190,8 @@
 
 .try-again-button {
   display: flex;
-  width: 327px;
-  height: 40px;
+  width: 300px;
+  height: 30px;
   padding: 0px 16px;
   justify-content: center;
   align-items: center;
@@ -234,8 +205,8 @@
 
 .edit-book-button {
   display: flex;
-  width: 327px;
-  height: 40px;
+  width: 300px;
+  height: 30px;
   padding: 0px 16px;
   justify-content: center;
   align-items: center;
@@ -254,8 +225,8 @@
 
 .delete-book-button {
   display: flex;
-  width: 327px;
-  height: 40px;
+  width: 300px;
+  height: 30px;
   padding: 0px 16px;
   justify-content: center;
   align-items: center;
@@ -275,8 +246,8 @@
 
 .book-select-button {
   display: flex;
-  width: 327px;
-  height: 40px;
+  width: 300px;
+  height: 30px;
   padding: 0px 16px;
   justify-content: center;
   align-items: center;
