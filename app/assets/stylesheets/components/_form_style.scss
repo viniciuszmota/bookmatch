@@ -1,7 +1,8 @@
 .form-inputs {
   width: 100%;
   margin-bottom: 2vh;
-  font-size: 12px;
+  font-size: 14px;
+  background: none;
 
   input {
     width: 327px;
@@ -33,11 +34,10 @@
   color: #161616;
 }
 
-
 .btn {
   font-size: 12px;
   color: #FFFCFC;
-  border: none; 
+  border: none;
   text-decoration: none;
   background: none;
   transition: transform 0.1s ease-in-out;
@@ -51,4 +51,57 @@
 .form-check-label {
   font-size: 12px;
   color: #161616;
+}
+
+.input-wrapper {
+  margin-bottom: 1rem;
+}
+
+.label-custom {
+  font-weight: bold;
+  color: #333;
+}
+
+.input-custom {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+
+  &:focus {
+    border-color: #007bff;
+    outline: none;
+  }
+}
+
+.input-error {
+  border-color: red;
+}
+
+.input-valid {
+  border-color: green;
+}
+
+.error-message {
+  color: red;
+  font-size: 14px;
+}
+
+.hint-message {
+  font-size: 12px;
+  color: gray;
+}
+
+.button-custom {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #0056b3;
+  }
 }

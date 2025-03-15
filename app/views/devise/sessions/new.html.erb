@@ -22,9 +22,14 @@
              input_html: { autocomplete: "current-password", placeholder: "Sua senha", class: "center-placeholder" } %>
       </div>
 
-      <div class="continue-blue-button">
-        <%= f.button :submit, "Continuar" %>
-      </div>
+      <%= form_with(url: session_path(:user), method: :post) do |f| %>
+    <div class="continue-blue-button">
+      <%= f.submit "Continuar" %>
+    </div>
+    <% end %>
+
+
+
     <% end %>
 
     <div class="login-or">
@@ -41,8 +46,10 @@
       Entrar com Apple
     </button>
 
-    <div class="login-terms">
-      <p>Ao clicar em “Continuar” ou em “Criar uma conta", você concorda com nossos Termos de Serviço e Política de Privacidade</p>
-    </div>
+    <div class="home-terms">
+    <p>
+      Ao clicar em “Continuar” ou em “Criar uma conta", você concorda com nossos
+      <a href="#">Termos de Serviço</a> e <a href="#">Política de Privacidade</a>.
+    </p>
   </div>
 </div>

@@ -1,3 +1,35 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
-<%= button_to "Sair", destroy_user_session_path, method: :delete, data: { confirm: "Tem certeza que deseja sair?" } %>
+<div class="home-container">
+  <div class="login-logo">
+    <%= image_tag "logo-principal.png", alt: "Logo BookMatch" %>
+  </div>
+
+  <div class="home-top">
+    <p>Bem-vindo ao BookMatch!</p>
+  </div>
+
+<div class="home-form">
+  <%= form_with(url: session_path(:user), method: :post) do |f| %>
+    <div class="continue-blue-button">
+      <%= f.submit "Continuar" %>
+    </div>
+  <% end %>
+
+  <div class="home-or">
+    <p>ou</p>
+  </div>
+
+  <%= form_with(url: new_user_registration_path, method: :get) do |f| %>
+    <div class="create-account-button">
+      <%= f.submit "Criar sua conta" %>
+    </div>
+  <% end %>
+  <div class="home-terms">
+    <p>
+      Ao clicar em “Continuar” ou em “Criar uma conta", você concorda com nossos
+      <a href="#">Termos de Serviço</a> e <a href="#">Política de Privacidade</a>.
+    </p>
+  </div>
+</div>
+
+
+</div>
