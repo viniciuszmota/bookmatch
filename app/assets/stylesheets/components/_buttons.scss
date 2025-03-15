@@ -1,4 +1,4 @@
-.continue-blue-button {
+.continue-blue-button input[type="submit"] {
   display: flex;
   width: 327px;
   height: 40px;
@@ -9,9 +9,11 @@
   align-self: stretch;
   border-radius: 8px;
   background: #2AA7F0;
+  color: #FFF;
+  font-size: 14px;
 }
 
-.continue-green-button {
+.continue-green-button input[type="submit"] {
   display: flex;
   width: 327px;
   height: 40px;
@@ -25,7 +27,7 @@
 
 }
 
-.continue-yellow-button {
+.continue-yellow-button input[type="submit"] {
   display: flex;
   width: 327px;
   height: 40px;
@@ -39,10 +41,10 @@
 
 }
 
-.create-account-button {
+.create-account-button input[type="submit"] {
   display: flex;
-  width: 300px;
-  height: 30px;
+  width: 327px;
+  height: 40px;
   padding: 0px 16px;
   justify-content: center;
   align-items: center;
@@ -50,12 +52,14 @@
   align-self: stretch;
   border-radius: 8px;
   background: #00C6AE;
+  color: #FFF;
+  font-size: 14px;
 }
 
 .advance-button {
   display: flex;
-  width: 300px;
-  height: 30px;
+  width: 327px;
+  height: 40px;
   padding: 0px 16px;
   justify-content: center;
   align-items: center;
@@ -76,7 +80,7 @@
   border-radius: 8px;
   background: #FFF;
   color: #161616;
-  font-size: 12px;
+  font-size: 14px;
   cursor: pointer;
   gap: 10px;
   transition: background 0.3s ease, transform 0.1s ease;
@@ -98,7 +102,7 @@
   border-radius: 8px;
   background: #FFF;
   color: #161616;
-  font-size: 12px;
+  font-size: 14px;
   margin-top: 10px;
   cursor: pointer;
   gap: 10px;
