@@ -1,18 +1,17 @@
 <h2>Detalhes do Livro</h2>
 
 <ul>
-  <li>Título: <%= @book.title %></li>
+  <li>Título: <%= @book.title %></li>
   <li>Autor: <%= @book.author %></li>
-  <li>Condição: <%= @book.condition %></li>
+  <li>Condição: <%= @book.condition %></li>
 </ul>
-<%= button_to "Sair", destroy_user_session_path, method: :delete%>
+
+<%= button_to "Sair", destroy_user_session_path, method: :delete %>
 
 <%= form_with model: @like, url: likes_path, method: :post do |f| %>
   <%= f.hidden_field :book_id, value: @book.id %>
   <%= f.hidden_field :user_id, value: @user.id %>
   <%= f.submit "Aceitar" %>
 <% end %>
-
-
 
 <%= link_to "Recusar", book_path(@book) %>
