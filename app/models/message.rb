@@ -1,7 +1,5 @@
 class Message < ApplicationRecord
-  def change
-    add_reference :messages, :sender, foreign_key: { to_table: :users }
-    add_reference :messages, :receiver, foreign_key: { to_table: :users }
-  end
-
+  belongs_to :sender, class_name: "User", foreign_key: "sender_id"
+  belongs_to :receiver, class_name: "User", foreign_key: "receiver_id"
+  validates :content, presence: true 
 end
