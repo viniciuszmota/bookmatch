@@ -8,9 +8,9 @@ class ApplicationController < ActionController::Base
   # after_action :verify_policy_scoped, only: :index, unless: :skip_pundit?
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: %i[photo first_name last_name user_name gender birthday])
+    devise_parameter_sanitizer.permit(:sign_up, keys: %i[photo full_name gender birthday])
     devise_parameter_sanitizer.permit(:account_update,
-                                      keys: %i[photo first_name last_name user_name gender birthday])
+                                      keys: %i[photo full_name gender birthday])
   end
 
   # private
