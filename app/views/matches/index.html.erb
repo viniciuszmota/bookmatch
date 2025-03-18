@@ -27,8 +27,10 @@
         <% else %>
           <%= image_tag "no-image.jpg", width: 150, height: 150, alt: "Sem foto disponível" %>
         <% end %>
+
+        <%= link_to "Chat", match_path(match) %>
+
       </li>
-      <hr>
     <% end %>
   </ul>
 <% else %>
