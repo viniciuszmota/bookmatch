@@ -1,4 +1,5 @@
 class MatchesController < ApplicationController
+  before_action :match_params, only: [:create]
   def new
     @match = Match.new
   end
@@ -11,7 +12,8 @@ class MatchesController < ApplicationController
       render: new
     end
   end
- 
+
+  private
   def match_params
     params.require(:match).permit(:first_like_id, :second_like_id)
   end
