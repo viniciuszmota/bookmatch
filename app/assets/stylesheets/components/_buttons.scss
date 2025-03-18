@@ -1,4 +1,4 @@
-.continue-blue-button input[type="submit"] {
+.continue-button input[type="submit"] {
   display: flex;
   width: 327px;
   height: 40px;
@@ -8,35 +8,9 @@
   gap: 8px;
   align-self: stretch;
   border-radius: 8px;
-  background: #2AA7F0;
-  color: #FFF;
-  font-size: 14px;
-}
-
-.continue-green-button input[type="submit"] {
-  display: flex;
-  width: 327px;
-  height: 40px;
-  padding: 0px 16px;
-  justify-content: center;
-  align-items: center;
-  gap: 8px;
-  align-self: stretch;
-  border-radius: 8px;
-  background: #00C6AE;
-}
-
-.continue-yellow-button input[type="submit"] {
-  display: flex;
-  width: 327px;
-  height: 40px;
-  padding: 0px 16px;
-  justify-content: center;
-  align-items: center;
-  gap: 8px;
-  align-self: stretch;
-  border-radius: 8px;
-  background: #F6ECA6;
+  background: #222222;
+  color: #FFFCFC;
+  font-size: 16px;
 }
 
 .create-account-button input[type="submit"] {
@@ -49,12 +23,13 @@
   gap: 8px;
   align-self: stretch;
   border-radius: 8px;
-  background: #00C6AE;
-  color: #FFF;
-  font-size: 14px;
+  border: 1px solid #222222;
+  background: transparent;
+  font-size: 16px;
+  color: #FFFCFC;
 }
 
-.advance-button {
+.advance-button input[type="submit"] {
   display: flex;
   width: 327px;
   height: 40px;
@@ -64,10 +39,12 @@
   gap: 8px;
   align-self: stretch;
   border-radius: 8px;
-  background: #00C6AE;
+  background: #222222;
+  color: #FFF;
+  font-size: 14px;
 }
 
-.google-button {
+.google-button input[type="submit"] {
   display: flex;
   width: 327px;
   height: 40px;
@@ -89,7 +66,7 @@
   }
 }
 
-.apple-button {
+.apple-button input[type="submit"] {
   display: flex;
   width: 327px;
   height: 40px;
@@ -112,17 +89,19 @@
   }
 }
 
-.add-book-button {
+.add-book-button input[type="submit"] {
   display: flex;
-  width: 300px;
-  height: 30px;
+  width: 327px;
+  height: 40px;
   padding: 0px 16px;
   justify-content: center;
   align-items: center;
   gap: 8px;
   align-self: stretch;
   border-radius: 8px;
-  background: #00C6AE;
+  background: #222222;
+  color: #FFF;
+  font-size: 14px;
 }
 
 .add-book-profile-button {
@@ -132,7 +111,22 @@
   background-color: #FFF;
 }
 
-.isbn-button {
+.isbn-button input[type="submit"] {
+  display: flex;
+  width: 327px;
+  height: 40px;
+  padding: 0px 16px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  align-self: stretch;
+  border-radius: 8px;
+  background: #222222;
+  color: #FFF;
+  font-size: 14px;
+}
+
+.add-isbn-manual-button input[type="submit"] {
   display: flex;
   width: 300px;
   height: 30px;
@@ -145,20 +139,7 @@
   background: #00C6AE;
 }
 
-.add-isbn-manual-button {
-  display: flex;
-  width: 300px;
-  height: 30px;
-  padding: 0px 16px;
-  justify-content: center;
-  align-items: center;
-  gap: 8px;
-  align-self: stretch;
-  border-radius: 8px;
-  background: #00C6AE;
-}
-
-.isb-scanner-button {
+.isb-scanner-button input[type="submit"] {
   display: flex;
   width: 300px;
   height: 30px;
@@ -172,7 +153,7 @@
   background: #191919;
 }
 
-.introduce-isbn-button {
+.introduce-isbn-button input[type="submit"] {
   display: flex;
   width: 300px;
   height: 30px;
@@ -185,7 +166,7 @@
   background: #FFF;
 }
 
-.try-again-button {
+.try-again-button input[type="submit"] {
   display: flex;
   width: 300px;
   height: 30px;
@@ -199,7 +180,7 @@
   background: #191919;
 }
 
-.edit-book-button {
+.edit-book-button input[type="submit"] {
   display: flex;
   width: 300px;
   height: 30px;
@@ -219,7 +200,7 @@
   background-color: #FFF;
 }
 
-.delete-book-button {
+.delete-book-button input[type="submit"] {
   display: flex;
   width: 300px;
   height: 30px;
@@ -240,7 +221,7 @@
 
 
 
-.book-select-button {
+.book-select-button input[type="submit"] {
   display: flex;
   width: 300px;
   height: 30px;
