@@ -3,35 +3,32 @@ class LikesController < ApplicationController
       @like = Like.new
     end
     
-    def create
-      @like = Like.new(like_params)
-      @like.user = current_user  # O usuário que está dando like
+
     
-      if @like.save
-        # Pegando o dono do livro que recebeu o like
-        book_owner = @like.book.user
-    
-        # Verifica se o dono do livro já deu like em algum livro do current_user
-        mutual_like = Like.exists?(user: book_owner, book: current_user.books)
-    
-        if mutual_like
-          Match.create(first_user: book_owner, second_user: current_user)
-        else
-          flash[:notice] = "Like registrado com sucesso!"
-        end
-    
-        redirect_to book_path(@like.book)
-      else
-        flash[:alert] = "Erro ao registrar o like."
-        redirect_to books_path
-      end
-    end
-    private
-    def like_params
-      # params.require(:like).permit(:book_id, :user_id)
-    # rescue ActionController::ParameterMissing
-      params.permit(:book_id, :user_id) # Permite parâmetros não aninhados
+def create
+  @like = Like.new(like_params)
+  book_owner_id = @like.book.user_id
+  current_user_id = current_user.id
+  second_like = Like.find_by(user_id: book_owner_id, book_id: current_user.books.pluck(:id))
+  @like.save
+
+  if second_like
+
+    @match = Match.new(first_like_id: @like.id, second_like_id: second_like.id)
+
+    if @match.save
+      flash[:notice] = "Match registrado com sucesso!"
+    else
+      flash[:alert] = "Erro ao registrar match."
     end
   end
+end
+  private
+  def like_params
+    params.slice(:book_id, :user_id).permit!
+  end
+end
+
+
   
 

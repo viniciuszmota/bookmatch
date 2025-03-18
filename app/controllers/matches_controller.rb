@@ -6,7 +6,7 @@ class MatchesController < ApplicationController
   end
   
   def create
-    @match = Match.new(first_user_id: params[:first_user_id], second_user_id: params[:second_user_id])
+    @match = Match.new(first_like_id: params[:first_like_id], second_like_id: params[:second_like_id])
     if @match.save
       flash[:notice] = "Match registrado com sucesso!"
     else
@@ -15,7 +15,7 @@ class MatchesController < ApplicationController
   end
  
   def match_params
-    params.require(:match).permit(:attendee_id, :requestee_id)
+    params.require(:match).permit(:first_like_id, :second_like_id)
   end
 
 end
