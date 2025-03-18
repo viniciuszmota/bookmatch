@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_03_17_181530) do
+ActiveRecord::Schema[7.1].define(version: 2025_03_18_121340) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -65,10 +65,16 @@ ActiveRecord::Schema[7.1].define(version: 2025_03_17_181530) do
   create_table "matches", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "first_user_id"
-    t.bigint "second_user_id"
-    t.index ["first_user_id"], name: "index_matches_on_first_user_id"
-    t.index ["second_user_id"], name: "index_matches_on_second_user_id"
+    t.bigint "first_like_id"
+    t.bigint "second_like_id"
+    t.index ["first_like_id"], name: "index_matches_on_first_like_id"
+    t.index ["second_like_id"], name: "index_matches_on_second_like_id"
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.text "content", null: false
   end
 
   create_table "taggings", force: :cascade do |t|
@@ -122,7 +128,7 @@ ActiveRecord::Schema[7.1].define(version: 2025_03_17_181530) do
   add_foreign_key "books", "users"
   add_foreign_key "likes", "books"
   add_foreign_key "likes", "users"
-  add_foreign_key "matches", "users", column: "first_user_id"
-  add_foreign_key "matches", "users", column: "second_user_id"
+  add_foreign_key "matches", "likes", column: "first_like_id"
+  add_foreign_key "matches", "likes", column: "second_like_id"
   add_foreign_key "taggings", "tags"
 end
