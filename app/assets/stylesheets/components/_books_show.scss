@@ -1,0 +1,114 @@
+body {
+  margin: 0px;
+  padding: 0px;
+}
+#header-books-show {
+  display:flex;
+  position: absolute;
+  margin-top: 0px;
+  padding: 5px;
+  top: 0px;
+  width: 100%;
+  justify-content: space-between;
+}
+
+#show-image-book{
+  background-color: red;
+  display: flex;
+  position: relative;
+  justify-content: center;
+  border: solid 2px black;
+  ul {
+    list-style: none;
+  }
+}
+#show-image-book ul:first-of-type{
+  position: relative;
+  width: 280px;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  li {
+    position: absolute;
+    left: 0px;
+  }
+  
+}
+#show-image-book ul:last-of-type{
+  width: 60%;
+  
+  
+  border-top-left-radius: 10px; /* Radius no canto superior esquerdo */
+  border-top-right-radius: 10px; /* Radius no canto superior direito */
+}
+
+#show-book-info{
+  position:absolute;
+  bottom: 0px;
+  height: 80px;
+}
+
+#show-books-bottom-buttons{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 70%;
+
+}
+#blur-effect{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  border-top-left-radius: 10px; /* Radius no canto superior esquerdo */
+  border-top-right-radius: 10px; /* Radius no canto superior direito */
+  bottom: 0px;
+  background-color: rgba(0, 0, 0, 0.264);
+  filter: blur(2px);
+  left: 0px;
+  border: solid 1px green;
+}
+#show-page{
+  margin-top: 80px;
+}
+.notification-bell {
+  width: 30px;
+  height: 50px;
+  background-color: red;
+}
+
+#show-books-centralize{
+  text-align: center;
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+}
+.brand-logo{
+  width: 50px;
+  height: 50px;
+  background-color: green;
+}
+
+#filter-icon-header{
+  width: 30px;
+  height: 50px;
+  background-color: blue;
+}
+
+#footer-options {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 30px;
+  align-items: center;
+  background-color: black;
+  width: 100%;
+  height: 100px;
+  position: absolute;
+  bottom: 0px;
+}
+
+.footer-icons{
+  width: 30px;
+  height: 30px;
+  background-color: red;
+}
