@@ -11,6 +11,14 @@ class MatchesController < ApplicationController
     @match = Match.new
   end
 
+  
+  def show
+    @match = Match.find(params[:id])
+
+    @message = Message.new   
+  end
+
+
   def create
     @match = Match.new(match_params)
     if @match.save
@@ -19,6 +27,13 @@ class MatchesController < ApplicationController
       render :new
     end
   end
+
+  def destroy
+    @match = Match.find(params[:id])
+    @match.destroy
+    redirect_to matches_path
+  end
+
 
   private
   def match_params

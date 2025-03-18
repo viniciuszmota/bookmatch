@@ -35,17 +35,6 @@
     </button>
   </div>
 
-  <div class="form">
-    <div class="top">
-      <p>Adicionar Livro</p>
-    </div>
-
-    <%= simple_form_for @book do |f| %>
-      <%= f.input :title,
-        required: true,
-        label: false,
-        input_html: { placeholder: "Título do Livro", class: "center-placeholder" } %>
-
       <%= f.input :author,
         required: true,
         label: false,

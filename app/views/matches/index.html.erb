@@ -14,11 +14,28 @@
       <li>
         <strong>Seu Livro:</strong> <%= user_like.book.title %> <br>
         <strong>Livro do Match:</strong> <%= matched_like.book.title %> <br>
-        <strong>Usuário do Match:</strong> <%= matched_like.user.full_name %>
+        <strong>Usuário do Match:</strong> <%= matched_like.user.full_name %> <br>
+
+        <% if user_like.book.photos.attached? %>
+          <%= image_tag user_like.book.photos.first, width: 150, height: 150, alt: "#{user_like.book.title} photo" %>
+        <% else %>
+          <%= image_tag "no-image.jpg", width: 150, height: 150, alt: "Sem foto disponível" %>
+        <% end %>
+
+        <% if matched_like.book.photos.attached? %>
+          <%= image_tag matched_like.book.photos.first, width: 150, height: 150, alt: "#{matched_like.book.title} photo" %>
+        <% else %>
+          <%= image_tag "no-image.jpg", width: 150, height: 150, alt: "Sem foto disponível" %>
+        <% end %>
+
+        <%= link_to "Chat", match_path(match) %>
+        <%= button_to "Delete", match_path(match), method: :delete%>
+
       </li>
-      <hr>
     <% end %>
   </ul>
 <% else %>
   <p>Você ainda não tem matches.</p>
 <% end %>
+
+<%= link_to "Meus Livros", books_path %>

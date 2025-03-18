@@ -1,7 +1,8 @@
 class BooksController < ApplicationController
-  before_action :set_book, only: %i[show edit update]
+  before_action :set_book, only: %i[show edit update destroy]
   def index
     @books = current_user.books
+    @book = Book.all
   end
   def new
     @book = Book.new
@@ -51,6 +52,21 @@ class BooksController < ApplicationController
     end
   end
 
+  def destroy
+
+    likes = Like.where(book_id: @book.id)
+
+    matches = Match.where(first_like_id: likes.pluck(:id)).or(Match.where(second_like_id: likes.pluck(:id)))
+
+    matches.destroy_all if matches
+
+    likes.destroy_all if likes
+
+    @book.destroy
+
+    redirect_to books_path, notice: "Livro removido com sucesso."
+  end
+
   private
 
   def accept
@@ -70,6 +86,6 @@ class BooksController < ApplicationController
   end
 
   def book_params
-    params.require(:book).permit(:title, :author, :publisher, :condition, :tag_list)
+    params.require(:book).permit(:title, :author, :publisher, :condition, :tag_list, photos: [])
   end
 end
