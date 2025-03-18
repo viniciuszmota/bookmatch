@@ -1,25 +1,24 @@
-<h2>Seus Matches de Livros</h2>
+<h2>Seus Matches</h2>
 
-<% if @matches.present? %>
+<% if @matches.any? %>
   <ul>
     <% @matches.each do |match| %>
+      <% if match.first_like.user == current_user %>
+        <% user_like = match.first_like %>
+        <% matched_like = match.second_like %>
+      <% else %>
+        <% user_like = match.second_like %>
+        <% matched_like = match.first_like %>
+      <% end %>
+
       <li>
-        <p><strong>Livros do Match:</strong></p>
-
-        <% matched_books = match.books %>  <!-- Aqui estamos pegando os livros associados ao match -->
-
-        <% if matched_books.any? %>
-          <ul>
-            <% matched_books.each do |book| %>
-              <li><%= book.title %> - <%= book.author %></li>  <!-- Exibe título e autor dos livros do match -->
-            <% end %>
-          </ul>
-        <% else %>
-          <p>Erro ao encontrar os livros do match</p>
-        <% end %>
+        <strong>Seu Livro:</strong> <%= user_like.book.title %> <br>
+        <strong>Livro do Match:</strong> <%= matched_like.book.title %> <br>
+        <strong>Usuário do Match:</strong> <%= matched_like.user.full_name %>
       </li>
+      <hr>
     <% end %>
   </ul>
 <% else %>
-  <p>Você ainda não tem matches!</p>
+  <p>Você ainda não tem matches.</p>
 <% end %>
