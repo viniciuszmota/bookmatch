@@ -1,29 +1,80 @@
-<h1>Adicionar Novo Livro</h1>
+<div class="white-container">
+  <div class="icon-right">
+    <%= link_to books_path do %>
+      <%= image_tag "arrow-left.png", alt: "Voltar" %>
+    <% end %>
+  </div>
+  <div class="logo-black">
+    <%= image_tag "logo-black.png", alt: "Logo BookMatch" %>
+  </div>
+  <div class="icon-left">
+    <%= image_tag "search-normal.png", alt: "Procurar" %>
+  </div>
+</div>
 
-<%= simple_form_for @book do |f| %>
-  <div class="form-group">
-    <%= f.input :title, label: "Título do Livro" %>
+<div class="container">
+  <div class="top-container">
+    <p class="top">Jorge Vieira, 36</p>
+    <div class="icon-left">
+      <%= image_tag "settings.png", alt: "Configurações" %>
+    </div>
   </div>
 
-  <div class="form-group">
-    <%= f.input :author, label: "Autor" %>
+  <div class="profile-button">
+    <button id="profile-button-my-books" class="profile-button-my-books">
+      <%= image_tag "my-books.png", alt: "Meus Livros", class: "icon-above" %>
+      Meus Livros
+    </button>
+    <button id="profile-button-chat" class="profile-button-chat">
+      <%= image_tag "chat.png", alt: "Chat", class: "icon-above" %>
+      Chat
+    </button>
+    <button id="profile-button-matches" class="profile-button-matches">
+      <%= image_tag "matches.png", alt: "Matches", class: "icon-above" %>
+      Matches
+    </button>
   </div>
 
-  <div class="form-group">
-    <%= f.input :publisher, label: "Editora" %>
-  </div>
+  <div class="form">
+    <div class="top">
+      <p>Adicionar Livro</p>
+    </div>
 
-  <div class="form-group">
-    <%= f.input :condition, label: "Condição", collection: Book.conditions.keys.map { |key| [key.humanize, key] }, include_blank: "Selecione" %>
-  </div>
+    <%= simple_form_for @book do |f| %>
+      <%= f.input :title,
+        required: true,
+        label: false,
+        input_html: { placeholder: "Título do Livro", class: "center-placeholder" } %>
 
-  <div class="form-group">
-    <%= f.input :tag_list, label: "Gênero", collection: Book::GENRES, include_blank: "Selecione" %>
-  </div>
+      <%= f.input :author,
+        required: true,
+        label: false,
+        input_html: { placeholder: "Autor", class: " center-placeholder" } %>
 
-  <div class="form-group">
-    <%= f.submit "Salvar Livro", class: "btn btn-primary" %>
-  </div>
-<% end %>
+      <%= f.input :publisher,
+        required: true,
+        label: false,
+        input_html: { placeholder: "Editora", class: "center-placeholder" } %>
 
-<%= link_to "Voltar", books_path, class: "btn btn-secondary" %>
+      <%= f.input :condition,
+        required: true,
+        label: false,
+        collection: Book.conditions.keys.map { |key| [key.humanize, key] },
+        include_blank: "Estado do livro",
+        input_html: { placeholder: "Estado do livro", class: "form-select center-placeholder" } %>
+
+      <div class="form-inputs">
+        <%= f.input :tag_list,
+          required: true,
+          label: false,
+          collection: Book::GENRES,
+          include_blank: "Gênero",
+          input_html: { placeholder: "Gênero", class: "form-select center-placeholder" } %>
+      </div>
+
+      <div class="add-book-button">
+        <%= f.submit "Adicionar livro", class: "add-book-button" %>
+      </div>
+    <% end %>
+  </div>
+</div>
