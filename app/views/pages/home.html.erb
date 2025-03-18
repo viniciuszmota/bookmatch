@@ -1,20 +1,16 @@
-<div class="home-container">
-  <div class="login-logo">
-    <%= image_tag "logo-principal.png", alt: "Logo BookMatch" %>
-  </div>
-
-  <div class="home-top">
+<div class="orange-container">
+  <div class="top">
     <p>Bem-vindo ao BookMatch!</p>
   </div>
 
-  <div class="home-form">
+  <div class="form">
     <%= form_with(url: session_path(:user), method: :post) do |f| %>
-      <div class="continue-blue-button">
+      <div class="continue-button">
         <%= f.submit "Continuar" %>
       </div>
     <% end %>
 
-    <div class="home-or">
+    <div class="or">
       <p>ou</p>
     </div>
 
@@ -24,7 +20,7 @@
       </div>
     <% end %>
 
-    <div class="home-terms">
+    <div class="terms">
       <p>
         Ao clicar em “Continuar” ou em “Criar uma conta", você concorda com nossos
         <a href="#">Termos de Serviço</a> e <a href="#">Política de Privacidade</a>.

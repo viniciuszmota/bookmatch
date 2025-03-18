@@ -6,14 +6,15 @@ class LikesController < ApplicationController
 
     
   def create
-  @like = Like.new(like_params)
-
-  if @like.save
-    # Verifica se já existe um like recíproco
-    second_like = Like.find_by(user_id: @like.book.user_id, book_id: @like.user.books.pluck(:id))
-
+    @like = Like.new(like_params)
+    book_owner_id = @like.book.user_id
+    current_user_id = current_user.id
+    second_like = Like.find_by(user_id: book_owner_id, book_id: current_user.books.pluck(:id))
+    
+    @like.save
+    
     if second_like
-      @match = Match.new(first_like_id: @like.id, second_like_id: second_like.id)
+      @match = Match.create(first_like_id: @like.id, second_like_id: second_like.id)
 
       if @match.save
         flash[:notice] = "Match registrado com sucesso!"
@@ -21,16 +22,7 @@ class LikesController < ApplicationController
         flash[:alert] = "Erro ao registrar match."
       end
     end
-
-    respond_to do |format|
-      format.turbo_stream
-      format.html { redirect_to root_path }
-    end
-  else
-    flash[:alert] = "Erro ao dar like."
-    redirect_to root_path
   end
-end
     private
     def like_params
       params.slice(:book_id, :user_id).permit!

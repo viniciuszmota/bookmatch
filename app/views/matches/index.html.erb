@@ -1,0 +1,24 @@
+<h2>Seus Matches</h2>
+
+<% if @matches.any? %>
+  <ul>
+    <% @matches.each do |match| %>
+      <% if match.first_like.user == current_user %>
+        <% user_like = match.first_like %>
+        <% matched_like = match.second_like %>
+      <% else %>
+        <% user_like = match.second_like %>
+        <% matched_like = match.first_like %>
+      <% end %>
+
+      <li>
+        <strong>Seu Livro:</strong> <%= user_like.book.title %> <br>
+        <strong>Livro do Match:</strong> <%= matched_like.book.title %> <br>
+        <strong>Usuário do Match:</strong> <%= matched_like.user.full_name %>
+      </li>
+      <hr>
+    <% end %>
+  </ul>
+<% else %>
+  <p>Você ainda não tem matches.</p>
+<% end %>

@@ -1,13 +1,9 @@
-<div class="login-container">
-  <div class="login-logo">
-    <%= image_tag "logo-principal.png", alt: "Logo BookMatch" %>
-  </div>
 
-  <div class="login-top">
+<div class="orange-container">
+  <div class="top">
     <p>Insira seu e-mail e sua senha para continuar</p>
   </div>
-
-  <div class="login-form">
+  <div class="form">
     <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <div class="form-inputs">
         <%= f.input :email,
@@ -23,14 +19,14 @@
       </div>
 
       <%= form_with(url: session_path(:user), method: :post) do |f| %>
-        <div class="continue-blue-button">
+        <div class="continue-button">
           <%= f.submit "Continuar" %>
         </div>
       <% end %>
 
     <% end %>
 
-    <div class="login-or">
+    <div class="or">
       <p>ou</p>
     </div>
 
@@ -44,11 +40,12 @@
       Entrar com Apple
     </button>
 
-    <div class="home-terms">
+    <div class="terms">
       <p>
         Ao clicar em “Continuar” ou em “Criar uma conta", você concorda com nossos
         <a href="#">Termos de Serviço</a> e <a href="#">Política de Privacidade</a>.
       </p>
     </div>
   </div>
+</div>
 </div>
