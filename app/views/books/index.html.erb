@@ -4,4 +4,12 @@
     <li><%= book.author %></li>
     <li><%= book.condition %></li>
   </ul>
+
+  <% if book.photos.attached? %>
+      <li>
+        <%= image_tag book.photos.first, width: 300, height: 400, alt: "#{book.title} photo" %>
+      </li>
+    <% else %>
+      <li><%= image_tag "no-image.jpg", width: 300, height: 400, alt: "Sem foto disponível" %></li>
+    <% end %>
 <% end %>
