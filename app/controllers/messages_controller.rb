@@ -13,7 +13,7 @@ class MessagesController < ApplicationController
         end
       end
     else
-      render "bookings/show", status: :unprocessable_entity
+      render "matches/show", status: :unprocessable_entity
     end
   end
 
