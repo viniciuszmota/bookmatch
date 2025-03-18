@@ -1,13 +1,14 @@
 <%= simple_form_for [@match, @message],
-  html: {class: "d-flex"} do |f|
-%>
-
+  html: { class: "d-flex", data: { controller: "reset-form", action: "turbo:submit-end->reset-form#reset", target: "reset-form.form" } } do |f| %>
+  <%= turbo_stream_from "match_#{@match.id}_messages" %>
   <div id="messages" class="messages">
-  <% @match.messages.each do |message| %>
-    <%= render "messages/message", message: message %>
-  <% end %>
-</div>
+    <% @match.messages.each do |message| %>
+      <%= render "messages/message", message: message %>
+    <% end %>
+  </div>
+
   <% other_user = current_user == Like.find(@match.first_like_id).user_id ? Like.find(@match.first_like_id).user : Like.find(@match.second_like_id).user %>
+  
   <%= f.input :content,
     label: false,
     placeholder: "Message #{other_user.full_name}",
