@@ -29,6 +29,7 @@
         <% end %>
 
         <%= link_to "Chat", match_path(match) %>
+        <%= button_to "Delete", match_path(match), method: :delete%>
 
       </li>
     <% end %>
