@@ -54,7 +54,7 @@
   line-height: 1.5;
   margin-top: 6vh;
   margin-bottom: 10px;
-  font-size: 14px;
+  font-size: 16px;
   width: 100%;
 }
 
@@ -63,10 +63,17 @@
   justify-content: center;
   align-items: center;
   margin-top: 2vh;
-  font-size: 14px;
+  font-size: 16px;
 }
 
 a {
   text-decoration: none;
   color: white;
+}
+
+.alert {
+  position: fixed;
+  bottom: 16px;
+  right: 16px;
+  z-index: 1000;
 }
