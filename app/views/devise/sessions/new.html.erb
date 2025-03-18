@@ -1,12 +1,8 @@
-<div class="container">
-  <div class="logo">
-    <%= image_tag "logo-principal.png", alt: "Logo BookMatch" %>
-  </div>
 
+<div class="orange-container">
   <div class="top">
     <p>Insira seu e-mail e sua senha para continuar</p>
   </div>
-
   <div class="form">
     <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <div class="form-inputs">
@@ -23,7 +19,7 @@
       </div>
 
       <%= form_with(url: session_path(:user), method: :post) do |f| %>
-        <div class="continue-blue-button">
+        <div class="continue-button">
           <%= f.submit "Continuar" %>
         </div>
       <% end %>
@@ -51,4 +47,5 @@
       </p>
     </div>
   </div>
+</div>
 </div>
