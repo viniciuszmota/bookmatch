@@ -78,12 +78,6 @@ ActiveRecord::Schema[7.1].define(version: 2025_03_18_121340) do
     t.text "content", null: false
   end
 
-  create_table "messages", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.text "content", null: false
-  end
-
   create_table "taggings", force: :cascade do |t|
     t.bigint "tag_id"
     t.string "taggable_type"
