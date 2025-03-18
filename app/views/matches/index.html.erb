@@ -1,0 +1,25 @@
+<h2>Seus Matches de Livros</h2>
+
+<% if @matches.present? %>
+  <ul>
+    <% @matches.each do |match| %>
+      <li>
+        <p><strong>Livros do Match:</strong></p>
+
+        <% matched_books = match.books %>  <!-- Aqui estamos pegando os livros associados ao match -->
+
+        <% if matched_books.any? %>
+          <ul>
+            <% matched_books.each do |book| %>
+              <li><%= book.title %> - <%= book.author %></li>  <!-- Exibe título e autor dos livros do match -->
+            <% end %>
+          </ul>
+        <% else %>
+          <p>Erro ao encontrar os livros do match</p>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>Você ainda não tem matches!</p>
+<% end %>
