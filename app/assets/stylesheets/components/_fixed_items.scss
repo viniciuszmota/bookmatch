@@ -1,3 +1,25 @@
+.avatar-profile {
+width: 107px;
+height: 107px;
+flex-shrink: 0;
+aspect-ratio: 1/1;
+border-radius: 50%;
+}
+
+.icon {
+width: 20px;
+height: 20px;
+align-items: center;
+
+ .icon-left {
+    margin-left: 20px;
+ }
+
+ .icon-right {
+  margin-right: 20px;
+}
+}
+
 .container {
   display: flex;
   flex-direction: column;
@@ -6,6 +28,23 @@
   width: 100%;
   height: 100vh;
   color: $font-color;
+  position: fixed;
+
+}
+.white-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 100px;
+  color: $font-color;
+  background: #FFFCFC;
+  padding: 10px;
 }
 
 .orange-container {
@@ -25,6 +64,8 @@
   left: 0;
   right: 0;
 }
+
+
 
 .login {
   display: flex;
@@ -48,6 +89,21 @@
   object-fit: contain;
 }
 
+.logo-black {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-grow: 1;
+  width: 100%;
+  margin-top: 30px;
+}
+
+.logo-black img {
+  width: 217px;
+  height: 35px;
+  object-fit: contain;
+}
 .top {
   text-align: center;
   font-weight: 400;
@@ -56,8 +112,14 @@
   margin-bottom: 10px;
   font-size: 16px;
   width: 100%;
+  color: #FFFCFC;
 }
-
+.top-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 80px;
+}
 .or {
   display: flex;
   justify-content: center;
