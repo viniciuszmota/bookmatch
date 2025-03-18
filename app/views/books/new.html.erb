@@ -22,6 +22,10 @@
   </div>
 
   <div class="form-group">
+    <%= f.input :photos, label: "Foto", as: :file, input_html: { multiple: true } %>
+  </div>
+
+  <div class="form-group">
     <%= f.submit "Salvar Livro", class: "btn btn-primary" %>
   </div>
 <% end %>
