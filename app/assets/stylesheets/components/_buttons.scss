@@ -44,6 +44,22 @@
   font-size: 14px;
 }
 
+.edit-book-button input[type="submit"] {
+  display: flex;
+  width: 327px;
+  height: 40px;
+  padding: 0px 16px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  align-self: stretch;
+  border-radius: 8px;
+  border: 1px solid #222222;
+  background: #FF5000;
+  font-size: 16px;
+  color: #FFFCFC;
+}
+
 .google-button {
   display: flex;
   width: 327px;
@@ -231,19 +247,6 @@
   border-radius: 8px;
   border: 1px solid #00C6AE;
   background: #191919;
-}
-
-.edit-book-button input[type="submit"] {
-  display: flex;
-  width: 300px;
-  height: 30px;
-  padding: 0px 16px;
-  justify-content: center;
-  align-items: center;
-  gap: 8px;
-  flex-shrink: 0;
-  border-radius: 8px;
-  background: #F6ECA6;
 }
 
 .edit-book-profile-button {
