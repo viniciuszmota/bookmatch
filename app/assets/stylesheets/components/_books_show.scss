@@ -1,6 +1,7 @@
 body {
   margin: 0px;
   padding: 0px;
+  background-color: white;
 }
 #header-books-show {
   display:flex;
@@ -13,11 +14,10 @@ body {
 }
 
 #show-image-book{
-  background-color: red;
+  background-color: white;
   display: flex;
   position: relative;
   justify-content: center;
-  border: solid 2px black;
   ul {
     list-style: none;
   }
