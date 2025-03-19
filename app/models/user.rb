@@ -3,7 +3,7 @@ class User < ApplicationRecord
   has_many :books
 
   has_many :messages, dependent: :destroy
- 
+  has_many :likes, dependent: :destroy
   # belongs_to :sender, class_name: "User"
   # belongs_to :receiver, class_name: "User"
 
