@@ -25,10 +25,10 @@
   <div class="top-general-container">
     <div class="top-white-container">
       <div class="profile-button">
-        <%= link_to books_path, class: "profile-button-my-books-link" do %>
+        <%= link_to new_book_path, class: "profile-button-my-books-link" do %>
           <button id="profile-button-my-books" class="profile-button-my-books">
             <%= image_tag "my-books.png", alt: "Meus Livros", class: "icon-above" %>
-            Meus Livros
+            Cadastrar
           </button>
         <% end %>
 
@@ -48,7 +48,7 @@
 
     <div class="book-container-general">
       <% @books.each do |book| %>
-        <%= link_to book_path(book), class: "book-container" do %>
+        <%= link_to edit_book_path(book), class: "book-container" do %>
           <div class="book-button-photo">
             <% if book.photos.attached? %>
               <li>
