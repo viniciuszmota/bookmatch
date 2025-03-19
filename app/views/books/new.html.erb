@@ -4,9 +4,11 @@
       <%= image_tag "arrow-left.png", alt: "Voltar" %>
     <% end %>
   </div>
+
   <div class="logo-black">
     <%= image_tag "logo-black.png", alt: "Logo BookMatch" %>
   </div>
+
   <div class="icon-left">
     <%= image_tag "search-normal.png", alt: "Procurar" %>
   </div>
@@ -25,20 +27,24 @@
       <%= image_tag "my-books.png", alt: "Meus Livros", class: "icon-above" %>
       Meus Livros
     </button>
+
     <button id="profile-button-chat" class="profile-button-chat">
       <%= image_tag "chat.png", alt: "Chat", class: "icon-above" %>
       Chat
     </button>
+
     <button id="profile-button-matches" class="profile-button-matches">
       <%= image_tag "matches.png", alt: "Matches", class: "icon-above" %>
       Matches
     </button>
   </div>
 
+  <div class="form">
+    <%= simple_form_for @book do |f| %>
       <%= f.input :author,
         required: true,
         label: false,
-        input_html: { placeholder: "Autor", class: " center-placeholder" } %>
+        input_html: { placeholder: "Autor", class: "center-placeholder" } %>
 
       <%= f.input :publisher,
         required: true,
@@ -50,7 +56,7 @@
         label: false,
         collection: Book.conditions.keys.map { |key| [key.humanize, key] },
         include_blank: "Estado do livro",
-        input_html: { placeholder: "Estado do livro", class: "form-select center-placeholder" } %>
+        input_html: { class: "form-select center-placeholder" } %>
 
       <div class="form-inputs">
         <%= f.input :tag_list,
@@ -58,7 +64,7 @@
           label: false,
           collection: Book::GENRES,
           include_blank: "Gênero",
-          input_html: { placeholder: "Gênero", class: "form-select center-placeholder" } %>
+          input_html: { class: "form-select center-placeholder" } %>
       </div>
 
       <div class="add-book-button">
