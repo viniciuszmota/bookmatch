@@ -1,22 +1,87 @@
-<h2>Edite seu livro</h2>
-
-<%= simple_form_for @book do |f| %>
-
-  <%= f.error_notification %>
-  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
-
-  <div class="form-inputs">
-    <%= f.input :title %>
-    <%= f.input :author %>
-    <%= f.input :publisher %>
-    <%= f.input :condition %>
-    <%= f.input :tag_list, as: :select, collection: Book::GENRES %>
-    <%= f.input :photos, label: "Fotos", as: :file, input_html: { multiple: true } %>
+<div class="white-container">
+  <div class="icon-right">
+    <%= link_to books_path do %>
+      <%= image_tag "arrow-left.png", alt: "Voltar" %>
+    <% end %>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
+  <div class="logo-black">
+    <%= image_tag "logo-black.png", alt: "Logo BookMatch" %>
   </div>
-<% end %>
+
+  <div class="icon-left">
+    <%= image_tag "search-normal.png", alt: "Procurar" %>
+  </div>
+</div>
+
+<div class="container">
+  <div class="top-container">
+    <p class="top">Jorge Vieira, 36</p>
+    <div class="icon-left">
+      <%= image_tag "settings.png", alt: "Configurações" %>
+    </div>
+  </div>
+
+  <div class="top-white-container">
+    <div class="profile-button">
+      <button id="profile-button-my-books" class="profile-button-my-books">
+        <%= image_tag "my-books.png", alt: "Meus Livros", class: "icon-above" %>
+        Meus Livros
+      </button>
+
+      <button id="profile-button-chat" class="profile-button-chat">
+        <%= image_tag "chat.png", alt: "Chat", class: "icon-above" %>
+        Chat
+      </button>
+
+      <button id="profile-button-matches" class="profile-button-matches">
+        <%= image_tag "matches.png", alt: "Matches", class: "icon-above" %>
+        Matches
+      </button>
+    </div>
+  </div>
+
+ <div class="form">
+    <%= simple_form_for @book do |f| %>
+      <%= f.input :title,
+        required: true,
+        label: false,
+        input_html: { placeholder: "Título do livro", class: "center-placeholder", style: "background-color: white;" } %>
+
+      <%= f.input :author,
+        required: true,
+        label: false,
+        input_html: { placeholder: "Autor", class: "center-placeholder", style: "background-color: white;" } %>
+
+      <%= f.input :publisher,
+        required: true,
+        label: false,
+        input_html: { placeholder: "Editora", class: "center-placeholder", style: "background-color: white;" } %>
+
+      <%= f.input :condition,
+        required: true,
+        label: false,
+        collection: Book.conditions.keys.map { |key| [key.humanize, key] },
+        include_blank: "Estado do livro",
+        input_html: { class: "form-select center-placeholder", style: "background-color: white;" } %>
+
+      <div class="form-inputs">
+        <%= f.input :tag_list,
+          required: true,
+          label: false,
+          collection: Book::GENRES,
+          include_blank: "Gênero",
+          input_html: { class: "form-select center-placeholder", style: "background-color: white;" } %>
+      </div>
+
+      <div class="form-inputs">
+        <%= f.input :photos, label: false, as: :file, input_html: { multiple: true, style: "background-color: white;"  } %>
+      </div>
+
+      <div class="edit-book-button">
+        <%= f.submit "Editar livro", class: "edit-book-button" %>
+      </div>
+    <% end %>
+  </div>
 
     <%= link_to 'Voltar', books_path %>
