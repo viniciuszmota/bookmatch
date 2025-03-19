@@ -1,17 +1,43 @@
-<h2>Detalhes do Livro</h2>
+<div id="header-books-show"><div class="notification-bell"></div><div class="brand-logo"></div><div id="filter-icon-header"></div></div>
+<div id="show-page">
 
-<ul>
-  <li>Título: <%= @book.title %></li>
-  <li>Autor: <%= @book.author %></li>
-  <li>Condição: <%= @book.condition %></li>
-</ul>
 
-<%= button_to "Sair", destroy_user_session_path, method: :delete %>
+<div id="show-image-book">
+  <ul>
+  <% if @book.photos.attached? %>
+    <li>
+       <%= image_tag @book.photos.first, width: 280, height: 400, alt: "#{@book.title} photo" %>
+    </li>
+  <% else %>
+    <li>
+      <%= image_tag "no-image.jpg", width: 280, height: 400, alt: "Sem foto disponível" %>
+    </li>
+  </ul>
+  <ul id="show-book-info">
+    <li>Título: <%= @book.title %></li>
+    <li>Autor: <%= @book.author %></li>
+    <li>Condição: <%= @book.condition %></li>
+    <div id="blur-effect"></div>
+  </ul>
+  <% end %>
+</div>
+</div>
+<div id="show-books-centralize">
+  <div id="show-books-bottom-buttons">
+    <%= button_to "Sair", destroy_user_session_path, method: :delete %>
 
-<%= form_with model: @like, url: likes_path, method: :post do |f| %>
-  <%= f.hidden_field :book_id, value: @book.id %>
-  <%= f.hidden_field :user_id, value: @user.id %>
-  <%= f.submit "Aceitar" %>
-<% end %>
+    <%= form_with model: @like, url: likes_path, method: :post do |f| %>
+      <%= f.hidden_field :book_id, value: @book.id %>
+      <%= f.hidden_field :user_id, value: @user.id %>
+      <%= f.submit "Aceitar" %>
+    <% end %>
+    <%= link_to "Voltar", books_path %>
+  </div>
+</div>
 
-<%= link_to "Voltar", books_path %>
+<div id="footer-options">
+<div class="footer-icons"></div>
+<div class="footer-icons"></div>
+<div class="footer-icons"></div>
+<div class="footer-icons"></div>
+</div>
