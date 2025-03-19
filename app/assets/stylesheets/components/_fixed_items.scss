@@ -45,6 +45,7 @@ align-items: center;
   color: $font-color;
   background: #FFFCFC;
   padding: 10px;
+  border-radius: 0 0 12px 12px;
 }
 
 .orange-container {
@@ -102,8 +103,12 @@ align-items: center;
 .logo-black img {
   width: 217px;
   height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   object-fit: contain;
 }
+
 .top {
   text-align: center;
   font-weight: 400;
@@ -120,6 +125,13 @@ align-items: center;
   align-items: center;
   margin-top: 80px;
 }
+.top-white-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 30px;
+}
+
 .or {
   display: flex;
   justify-content: center;
