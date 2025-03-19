@@ -22,41 +22,48 @@
     </div>
   </div>
 
-  <div class="profile-button">
-    <button id="profile-button-my-books" class="profile-button-my-books">
-      <%= image_tag "my-books.png", alt: "Meus Livros", class: "icon-above" %>
-      Meus Livros
-    </button>
+  <div class="top-white-container">
+    <div class="profile-button">
+      <button id="profile-button-my-books" class="profile-button-my-books">
+        <%= image_tag "my-books.png", alt: "Meus Livros", class: "icon-above" %>
+        Meus Livros
+      </button>
 
-    <button id="profile-button-chat" class="profile-button-chat">
-      <%= image_tag "chat.png", alt: "Chat", class: "icon-above" %>
-      Chat
-    </button>
+      <button id="profile-button-chat" class="profile-button-chat">
+        <%= image_tag "chat.png", alt: "Chat", class: "icon-above" %>
+        Chat
+      </button>
 
-    <button id="profile-button-matches" class="profile-button-matches">
-      <%= image_tag "matches.png", alt: "Matches", class: "icon-above" %>
-      Matches
-    </button>
+      <button id="profile-button-matches" class="profile-button-matches">
+        <%= image_tag "matches.png", alt: "Matches", class: "icon-above" %>
+        Matches
+      </button>
+    </div>
   </div>
 
   <div class="form">
     <%= simple_form_for @book do |f| %>
+      <%= f.input :title,
+        required: true,
+        label: false,
+        input_html: { placeholder: "Título do livro", class: "center-placeholder", style: "background-color: white;" } %>
+
       <%= f.input :author,
         required: true,
         label: false,
-        input_html: { placeholder: "Autor", class: "center-placeholder" } %>
+        input_html: { placeholder: "Autor", class: "center-placeholder", style: "background-color: white;" } %>
 
       <%= f.input :publisher,
         required: true,
         label: false,
-        input_html: { placeholder: "Editora", class: "center-placeholder" } %>
+        input_html: { placeholder: "Editora", class: "center-placeholder", style: "background-color: white;" } %>
 
       <%= f.input :condition,
         required: true,
         label: false,
         collection: Book.conditions.keys.map { |key| [key.humanize, key] },
         include_blank: "Estado do livro",
-        input_html: { class: "form-select center-placeholder" } %>
+        input_html: { class: "form-select center-placeholder", style: "background-color: white;" } %>
 
       <div class="form-inputs">
         <%= f.input :tag_list,
@@ -64,12 +71,16 @@
           label: false,
           collection: Book::GENRES,
           include_blank: "Gênero",
-          input_html: { class: "form-select center-placeholder" } %>
+          input_html: { class: "form-select center-placeholder", style: "background-color: white;" } %>
+      </div>
+
+      <div class="form-inputs">
+        <%= f.input :photos, label: false, as: :file, input_html: { multiple: true, style: "background-color: white;"  } %>
       </div>
 
       <div class="add-book-button">
         <%= f.submit "Adicionar livro", class: "add-book-button" %>
       </div>
     <% end %>
-  </div>
+  </div>
 </div>

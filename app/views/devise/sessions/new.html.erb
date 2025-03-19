@@ -12,12 +12,12 @@
              required: false,
              autofocus: true,
              label: false,
-             input_html: { autocomplete: "email", placeholder: "Seu e-mail", class: "center-placeholder" } %>
+             input_html: { autocomplete: "email", placeholder: "Seu e-mail", class: "center-placeholder", style: "background-color:#FFFCFC;"  } %>
 
         <%= f.input :password,
              required: false,
              label: false,
-             input_html: { autocomplete: "current-password", placeholder: "Sua senha", class: "center-placeholder" } %>
+             input_html: { autocomplete: "current-password", placeholder: "Sua senha", class: "center-placeholder", style: "background-color:#FFFCFC;"  } %>
       </div>
 
       <%= form_with(url: session_path(:user), method: :post) do |f| %>
