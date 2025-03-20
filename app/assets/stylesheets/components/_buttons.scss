@@ -254,6 +254,54 @@
   margin: 0;
 }
 
+=======
+}
+
+
+.book-button-photo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  text-align: center;
+  overflow: hidden;
+}
+
+.book-button-photo img {
+  max-width: 100px;
+  max-height: 100px;
+  object-fit: contain;
+}
+
+.book-button-info {
+  flex: 2;
+  text-align: center;
+  font-size: 14px;
+  color: #222222;
+}
+
+.book-2-buttons {
+  display: flex;
+  width: 327px;
+  height: 48.1px;
+  flex: 1;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  color: #222222;
+  background: #FFFCFC;
+  margin-top: 20px;
+  border-radius: 12px;
+}
+
+
+.book-button-info ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+
 .book-button-info li {
   padding: 2px 0;
 }
