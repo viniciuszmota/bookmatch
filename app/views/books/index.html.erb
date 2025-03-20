@@ -16,7 +16,7 @@
 
 <div class="container">
   <div class="top-container">
-    <p class="top">Jorge Vieira, 36</p>
+    <p class="top"><%= current_user.full_name.split.map(&:capitalize).join(' ') %></p>
     <div class="icon-left">
       <%= image_tag "settings.png", alt: "Configurações" %>
     </div>
@@ -38,7 +38,7 @@
             Cadastrar
           </button>
         <% end %>
-
+        
         <%= link_to matches_path, class: "profile-button-matches-link" do %>
           <button id="profile-button-matches" class="profile-button-matches">
             <%= image_tag "matches.png", alt: "Matches", class: "icon-above" %>
@@ -74,3 +74,4 @@
     </div>
   </div>
 </div>
+

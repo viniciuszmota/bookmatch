@@ -10,7 +10,7 @@ class MessagesController < ApplicationController
           render turbo_stream: turbo_stream.append(:messages, partial: "messages/message",
             target: "messages",
             locals: { message: @message })
-        end
+          end
       end
     else
       render "matches/show", status: :unprocessable_entity

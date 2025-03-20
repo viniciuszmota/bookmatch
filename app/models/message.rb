@@ -10,4 +10,6 @@ class Message < ApplicationRecord
                         target: "messages",
                         locals: { message: self }
   end
+
+  scope :unread_by, ->(user) { where(read: nil).where.not(user: user) }
 end
