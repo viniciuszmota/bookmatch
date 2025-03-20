@@ -16,7 +16,7 @@
 
 <div class="container">
   <div class="top-container">
-    <p class="top">Jorge Vieira, 36</p>
+    <p class="top"><%= current_user.full_name.split.map(&:capitalize).join(' ') %></p>
     <div class="icon-left">
       <%= image_tag "settings.png", alt: "Configurações" %>
     </div>
