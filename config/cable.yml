@@ -1,5 +1,7 @@
 development:
   adapter: solid_cable
+  polling_interval: 5.seconds
 
 production:
   adapter: solid_cable
+  
