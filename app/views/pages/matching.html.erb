@@ -1,0 +1,53 @@
+<div class="white-container">
+  <div class="icon-right">
+    <%= link_to books_path do %>
+      <%= image_tag "arrow-left.png", alt: "Voltar" %>
+    <% end %>
+  </div>
+
+  <div class="logo-black">
+    <%= image_tag "logo-black.png", alt: "Logo BookMatch" %>
+  </div>
+
+  <div class="icon-left">
+    <%= image_tag "search-normal.png", alt: "Procurar" %>
+  </div>
+</div>
+
+
+<div class="matching-container">
+<% if @matches.any? %>
+
+    <% @matches.each do |match| %>
+      <% if match.first_like.user == current_user %>
+        <% user_like = match.first_like %>
+        <% matched_like = match.second_like %>
+      <% else %>
+        <% user_like = match.second_like %>
+        <% matched_like = match.first_like %>
+      <% end %>
+
+
+      <div class="book-card-matching">
+        <div class="book-card-photo">
+        <% if user_like.book.photos.attached? %>
+            <%= image_tag user_like.book.photos.first, width: 150, height: 250, alt: "#{user_like.book.title} photo" %>
+        <% else %>
+            <%= image_tag "no-image.jpg", width: 150, height: 150, alt: "Sem foto disponível" %>
+        <% end %>
+        </div>
+      </div>
+      <h2>MATCH!</h2>
+
+        <%= link_to "Chat", match_path(match), class: "link-to-chat" %>
+
+      <%# <%= button_to "Delete", match_path(match), method: :delete%>
+    <% end %>
+
+<% else %>
+  <p>Você ainda não tem matches.</p>
+<% end %>
+
+
+<%= link_to "Meus Livros", books_path %>
+</div>

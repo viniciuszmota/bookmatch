@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   resources :books
   resources :likes
+  get 'matching', to: 'pages#matching', as: 'matching'
   get 'matchmaking', to: 'pages#matchmaking', as: 'matchmaking'
   resources :matches do
     resources :messages, only: :create
