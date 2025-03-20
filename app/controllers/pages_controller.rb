@@ -12,6 +12,6 @@ class PagesController < ApplicationController
             )
             .first
     @user = current_user
-  end
+  end
 end
     
