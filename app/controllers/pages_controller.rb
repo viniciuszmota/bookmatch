@@ -3,13 +3,16 @@ class PagesController < ApplicationController
 
   def home
   end
-
+  
   def matchmaking
     @book = Book
-            .left_joins(:likes) # Faz um LEFT JOIN com a tabela de likes
-            .where.not(user_id: current_user.id) # Evita que o usuário veja seus próprios livros
-            .where("likes.user_id IS NULL OR likes.user_id != ?", current_user.id).first
+            .where.not(user_id: current_user.id)
+            .where.not(
+              id: Like.where(user_id: current_user.id).select(:book_id)
+            )
+            .first
     @user = current_user
+
     # Armazena na sessão apenas os livros que não pertencem ao usuário logado
 
     # Pega o próximo livro do array (se existir)
@@ -22,5 +25,4 @@ class PagesController < ApplicationController
     .where(first_like: { user_id: current_user.id })
     .or(Match.where(second_like: { user_id: current_user.id }))
   end
-
 end

@@ -16,7 +16,7 @@
 
 <div class="container">
   <div class="top-container">
-    <p class="top">Jorge Vieira, 36</p>
+    <p class="top"><%= current_user.full_name.split.map(&:capitalize).join(' ') %></p>
     <div class="icon-left">
       <%= image_tag "settings.png", alt: "Configurações" %>
     </div>
@@ -25,20 +25,20 @@
   <div class="top-general-container">
     <div class="top-white-container">
       <div class="profile-button">
-
         <%= link_to books_path, class: "profile-button-my-books-link" do %>
           <button id="profile-button-my-books" class="profile-button-my-books">
             <%= image_tag "my-books.png", alt: "Meus Livros", class: "icon-above" %>
             Meus Livros
           </button>
-        <%= link_to new_book_path, class: "profile-button-my-books-link" do %>
-          <button id="profile-button-my-books" class="profile-button-my-books">
-            <%= image_tag "my-books.png", alt: "Meus Livros", class: "icon-above" %>
-            Cadastrar
-        </button>
         <% end %>
 
-
+        <%= link_to new_book_path, class: "profile-button-my-books-link" do %>
+          <button id="profile-button-my-books" class="profile-button-my-books">
+            <%= image_tag "my-books.png", alt: "Cadastrar Livro", class: "icon-above" %>
+            Cadastrar
+          </button>
+        <% end %>
+        
         <%= link_to matches_path, class: "profile-button-matches-link" do %>
           <button id="profile-button-matches" class="profile-button-matches">
             <%= image_tag "matches.png", alt: "Matches", class: "icon-above" %>
@@ -58,7 +58,6 @@
               </li>
             <% end %>
           </div>
-
           <div class="book-button-info">
             <ul>
               <li><%= book.title %></li>
@@ -69,13 +68,10 @@
         <% end %>
       <% end %>
 
-
-  <%= link_to new_book_path(:user), class: "add-book-button" do %>
-    <span>Adicionar livro</span>
-  <% end %>
-</div>
+      <%= link_to new_book_path(:user), class: "add-book-button" do %>
+        <span>Adicionar livro</span>
+      <% end %>
     </div>
   </div>
 </div>
-<% end %>
 

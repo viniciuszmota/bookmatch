@@ -29,6 +29,8 @@ gem "stimulus-rails"
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
 
+gem "dotenv-rails"
+
 # Create a virtual table to tag objects with tags
 gem 'acts-as-taggable-on', '12.0.0'
 # Devise

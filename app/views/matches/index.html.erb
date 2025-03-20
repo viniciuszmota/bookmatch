@@ -1,41 +1,82 @@
-<h2>Seus Matches</h2>
-
-<% if @matches.any? %>
-  <ul>
-    <% @matches.each do |match| %>
-      <% if match.first_like.user == current_user %>
-        <% user_like = match.first_like %>
-        <% matched_like = match.second_like %>
-      <% else %>
-        <% user_like = match.second_like %>
-        <% matched_like = match.first_like %>
-      <% end %>
-
-      <li>
-        <strong>Seu Livro:</strong> <%= user_like.book.title %> <br>
-        <strong>Livro do Match:</strong> <%= matched_like.book.title %> <br>
-        <strong>Usuário do Match:</strong> <%= matched_like.user.full_name %> <br>
-
-        <% if user_like.book.photos.attached? %>
-          <%= image_tag user_like.book.photos.first, width: 150, height: 150, alt: "#{user_like.book.title} photo" %>
-        <% else %>
-          <%= image_tag "no-image.jpg", width: 150, height: 150, alt: "Sem foto disponível" %>
-        <% end %>
-
-        <% if matched_like.book.photos.attached? %>
-          <%= image_tag matched_like.book.photos.first, width: 150, height: 150, alt: "#{matched_like.book.title} photo" %>
-        <% else %>
-          <%= image_tag "no-image.jpg", width: 150, height: 150, alt: "Sem foto disponível" %>
-        <% end %>
-
-        <%= link_to "Chat", match_path(match) %>
-        <%= button_to "Delete", match_path(match), method: :delete%>
-
-      </li>
+<div class="white-container">
+  <div class="icon-right">
+    <%= link_to books_path do %>
+      <%= image_tag "arrow-left.png", alt: "Voltar" %>
     <% end %>
-  </ul>
-<% else %>
-  <p>Você ainda não tem matches.</p>
-<% end %>
+  </div>
 
-<%= link_to "Meus Livros", books_path %>
+  <div class="logo-black">
+    <%= image_tag "logo-black.png", alt: "Logo BookMatch" %>
+  </div>
+
+  <div class="icon-left">
+    <%= image_tag "search-normal.png", alt: "Procurar" %>
+  </div>
+</div>
+<div class="matches-index-chat">
+  <% if @matches.any? %>
+    <h2>Seus Matches</h2>
+    <div id="index-avatar-container">
+     <% shown_users = Set.new %> <!-- Armazena IDs de usuários já exibidos -->
+      <% @matches.each do |match| %>
+        <% if match.first_like.user.id == current_user.id ? second_user = match.second_like.user : second_user = match.first_like.user %>
+        <% end %>
+        <% unless shown_users.include?(second_user.id) %>
+          <% shown_users.add(second_user.id) %>
+          <div class="index-avatar-profile">
+          <% if second_user.present? and second_user.photo.present? %>
+            <%= image_tag second_user.photo, width: 150, height: 150, alt: "#{second_user.email} photo", class: "avatar-index-photo"%>
+          <% else %>
+            <%= image_tag "no-image.jpg", width: 150, height: 150, alt: "Sem foto disponível", class: "avatar-index-photo" %>
+          <% end %>
+          <p><%= second_user.full_name %></p>
+        </div>
+        <% end %>
+      <% end %>
+        
+
+    </div>
+
+    <h2>Messages</h2>
+      <div id="index-message-container">
+        <ul>
+          <% @matches.each do |match| %>
+            <% if match.first_like.user.id == current_user.id ? second_user = match.second_like.user : second_user = match.first_like.user %>
+            <%end%>
+            <% unread_messages_count = match.messages.unread_by(current_user).count %>
+            <%= link_to match_path(match), class: "chat-link" do %>
+              <div class="chat-container">
+                <div class="avatar-message-container">
+                  <% if second_user.present? and second_user.photo.present? %>
+                    <%= image_tag second_user.photo, width: 150, height: 150, gravity: :center, crop: :fill, alt: "#{second_user.email} photo", class: "avatar-index-photo"%>
+                  <% else %>
+                    <%= image_tag "no-image.jpg", width: 150, height: 150, alt: "Sem foto disponível", class: "avatar-index-photo" %>
+                  <% end %>
+                </div>
+                <div class="relative-positioning">
+                  <div class="index-info-message">
+                    <h3><%=second_user.full_name%></h3>
+                    <% last_message = match.messages.order(created_at: :desc).limit(1).take %>
+                    <% if last_message.present? %>
+                        <p class="message-content-index"><i class="fa-solid <%= last_message.user == current_user ? 'fa-share' : 'fa-reply' %>"></i>   <%= last_message.content %>
+                    <%else%>
+                      <p><%= match.first_like.user == current_user ? match.second_like.book.title : match.first_like.book.title %></p>
+                    <% end %>
+                  </div>               
+                </div>
+                <div id="index-message-alert-time">
+                  <%=match.created_at.strftime("%H:%M")%>
+                  <% if unread_messages_count.positive? %>
+                    <span class="unread-badge"><%= unread_messages_count %></span>
+                  <% end %>
+                </div>
+              </div>
+            <% end %>
+          <% end %>
+        </ul>
+      </div>
+
+  <% else %>
+    <p>Você ainda não tem matches.</p>
+  <% end %>
+</div>

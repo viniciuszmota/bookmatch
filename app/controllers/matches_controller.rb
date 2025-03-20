@@ -5,7 +5,9 @@ class MatchesController < ApplicationController
     @matches = Match.includes(:first_like, :second_like)
     .where(first_like: { user_id: current_user.id })
     .or(Match.where(second_like: { user_id: current_user.id }))
+    
   end
+  
 
   def new
     @match = Match.new
@@ -14,8 +16,8 @@ class MatchesController < ApplicationController
   
   def show
     @match = Match.find(params[:id])
-
     @message = Message.new   
+    @match.messages.unread_by(current_user).update_all(read: true)
   end
 
 
