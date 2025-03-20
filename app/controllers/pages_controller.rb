@@ -3,7 +3,7 @@ class PagesController < ApplicationController
 
   def home
   end
-
+  
   def matchmaking
     @book = Book
             .where.not(user_id: current_user.id)
@@ -12,10 +12,6 @@ class PagesController < ApplicationController
             )
             .first
     @user = current_user
-  
-  end
-    
+  end
 end
-
-
-
+    
