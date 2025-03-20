@@ -105,7 +105,7 @@
   }
 }
 
-.add-book-button input[type="submit"] {
+.add-book-button-form input[type="submit"] {
   display: flex;
   width: 327px;
   height: 40px;
@@ -122,6 +122,25 @@
   text-align: center;
   margin-top: 10px;
 }
+
+.add-book-button {
+  display: flex;
+  width: 327px;
+  height: 40px;
+  padding: 0px 16px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  align-self: stretch;
+  border-radius: 8px;
+  border: 1px solid #222222;
+  background: #FF5000;
+  font-size: 16px;
+  color: #FFFCFC;
+  text-align: center;
+  margin-top: 10px;
+}
+
 
 .profile-button {
   display: flex;
@@ -188,6 +207,7 @@
   border-radius: 12px;
   margin-top: 20px;
   padding: 10px;
+  overflow-y: scroll;
 }
 
 
@@ -233,6 +253,54 @@
   padding: 0;
   margin: 0;
 }
+
+=======
+}
+
+
+.book-button-photo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  text-align: center;
+  overflow: hidden;
+}
+
+.book-button-photo img {
+  max-width: 100px;
+  max-height: 100px;
+  object-fit: contain;
+}
+
+.book-button-info {
+  flex: 2;
+  text-align: center;
+  font-size: 14px;
+  color: #222222;
+}
+
+.book-2-buttons {
+  display: flex;
+  width: 327px;
+  height: 48.1px;
+  flex: 1;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  color: #222222;
+  background: #FFFCFC;
+  margin-top: 20px;
+  border-radius: 12px;
+}
+
+
+.book-button-info ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
 
 .book-button-info li {
   padding: 2px 0;
@@ -348,5 +416,5 @@
   gap: 8px;
   flex-shrink: 0;
   border-radius: 8px;
-  background: #FFF;
+  background: #FFF;
 }

@@ -25,10 +25,17 @@
   <div class="top-general-container">
     <div class="top-white-container">
       <div class="profile-button">
+
+        <%= link_to books_path, class: "profile-button-my-books-link" do %>
+          <button id="profile-button-my-books" class="profile-button-my-books">
+            <%= image_tag "my-books.png", alt: "Meus Livros", class: "icon-above" %>
+            Meus Livros
+
         <%= link_to new_book_path, class: "profile-button-my-books-link" do %>
           <button id="profile-button-my-books" class="profile-button-my-books">
             <%= image_tag "my-books.png", alt: "Meus Livros", class: "icon-above" %>
             Cadastrar
+
           </button>
         <% end %>
 
@@ -66,6 +73,12 @@
           </div>
         <% end %>
       <% end %>
+
+
+  <%= link_to new_book_path(:user), class: "add-book-button" do %>
+    <span>Adicionar livro</span>
+  <% end %>
+</div>
     </div>
   </div>
 </div>
