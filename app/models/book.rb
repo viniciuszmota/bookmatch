@@ -8,4 +8,5 @@ class Book < ApplicationRecord
   enum condition: { novo: 0, usado: 1, danificado: 2, colecionador: 3 }
 
  validates :title, :author, :publisher, :condition, presence: true
+ validates :photos, presence: true
 end
