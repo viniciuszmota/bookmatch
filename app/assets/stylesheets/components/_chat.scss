@@ -1,0 +1,128 @@
+.chat {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+#new_message {
+  display: none;
+}
+
+.messages {
+  display: flex;
+  flex-direction: column;
+  height: calc(90vh - 60px); /* Ajuste para considerar o campo de entrada */
+  width: 100%;
+  padding: 10px;
+  overflow-y: auto;
+  background-color: #FF5000;
+}
+
+/* Estilo de cada mensagem */
+.message-container {
+  display: flex;
+  flex-direction: column;
+  max-width: 85%; /* Melhor ajuste para telas menores */
+  margin-bottom: 6px;
+  padding: 8px;
+  border-radius: 10px;
+  word-wrap: break-word;
+  font-size: 14px; /* Reduzido para melhor encaixe */
+}
+
+/* Mensagens do usuário */
+.my-message {
+  align-self: flex-end;
+  background-color: #222222;
+  color: #FFFCFC !important;
+  text-align: right;
+  border-radius: 12px 12px 5px 12px; /* (Opcional) Mantém as bordas arredondadas */
+  padding: 8px;
+}
+
+
+.other-message {
+  align-self: flex-start;
+  background-color: #ffffff;
+  text-align: left;
+  color: #222222 !important;
+  border: 1px solid #222222;
+  border-radius: 5px 12px 12px 12px;
+  padding: 8px;
+}
+
+/* Nome e data */
+.message-container small {
+  font-size: 11px; /* Pequena redução */
+  color: #FF5000;
+}
+
+/* Campo de entrada */
+form.d-flex {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: #ffffff;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Input responsivo */
+form.d-flex input {
+  flex-grow: 1;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 18px;
+  font-size: 14px;
+}
+
+/* Botão de envio */
+.send-button {
+  display: flex;
+  width: 327px;
+  height: 40px;
+  padding: 10px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 12px;
+  border: 1px solid #ffffff;
+  background-color: #FF5000;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  transition: transform 0.2s ease;
+}
+
+.send-button:active {
+  transform: scale(0.95); /* Diminui o tamanho em 5% */
+}
+
+/* Ajustes extras para telas de 414x736px */
+@media screen and (max-width: 414px) {
+  .messages {
+    padding: 8px;
+  }
+
+  .message-container {
+    max-width: 90%;
+    font-size: 13px;
+  }
+
+  form.d-flex {
+    padding: 6px;
+  }
+
+  form.d-flex input {
+    padding: 7px;
+    font-size: 13px;
+  }
+
+  form.d-flex .btn {
+    padding: 7px 10px;
+    font-size: 13px;
+  }
+}

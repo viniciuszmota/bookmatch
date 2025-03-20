@@ -1,21 +1,57 @@
-<%= simple_form_for [@match, @message],
-  html: { class: "d-flex", data: { controller: "reset-form", action: "turbo:submit-end->reset-form#reset", target: "reset-form.form" } } do |f| %>
-  <%= turbo_stream_from "match_#{@match.id}_messages" %>
-  <div id="messages" class="messages">
-    <% @match.messages.each do |message| %>
-      <%= render "messages/message", message: message %>
+<div class="white-container">
+  <div class="icon-right">
+    <%= link_to books_path do %>
+      <%= image_tag "arrow-left.png", alt: "Voltar" %>
     <% end %>
   </div>
 
-  <% other_user = current_user == Like.find(@match.first_like_id).user_id ? Like.find(@match.first_like_id).user : Like.find(@match.second_like_id).user %>
-  
-  <%= f.input :content,
-    label: false,
-    placeholder: "Message #{other_user.full_name}",
-    wrapper_html: {class: "flex-grow-1"}
-  %>
-  <%= f.submit "Send", class: "btn btn-primary mb-3" %>
+  <div class="logo-black">
+    <%= image_tag "logo-black.png", alt: "Logo BookMatch" %>
+  </div>
+
+  <div class="icon-left">
+    <%= image_tag "search-normal.png", alt: "Procurar" %>
+  </div>
+</div>
+
+<div class="chat">
+<%= simple_form_for [@match, @message],
+  html: { class: "d-flex", data: { controller: "reset-form", action: "turbo:submit-end->reset-form#reset", target: "reset-form.form" } } do |f| %>
+
+  <%= turbo_stream_from "match_#{@match.id}_messages" %>
+</div>
+  <div class="chat">
+  <div id="messages" class="messages">
+    <% @match.messages.each do |message| %>
+      <div class="message-container <%= message.user_id == current_user.id ? 'my-message' : 'other-message' %>">
+        <small>
+          <strong><%= message.user.full_name %></strong>
+          <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i>
+        </small>
+        <p><%= message.content %></p>
+      </div>
+    <% end %>
+  </div>
+
+  <div id="messages" class="chat">
+  <% other_user = (current_user.id == Like.find(@match.first_like_id).user_id) ?
+      Like.find(@match.second_like_id).user :
+      Like.find(@match.first_like_id).user %>
+  </div>
+  </div>
+
+
+  <div class="chat-input-container">
+    <%= f.input :content,
+  label: false,
+  placeholder: "Escreva aqui... #{other_user.full_name}",
+  style: "background-color: #FFFCFC; color: #222222;",
+  class: "message-input" %>
+<div class="chat">
+    <%= f.submit "Send", class: "send-button" %>
+  </div>
+  </div>
 
 <% end %>
 
-<%= link_to "Voltar", books_path %>
+
