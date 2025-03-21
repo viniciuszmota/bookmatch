@@ -12,13 +12,17 @@ def create
   second_like = Like.find_by(user_id: book_owner_id, book_id: current_user.books.pluck(:id))
   @like.save
 
-  if second_like
+  if second_like && @like.liked_action == true
     if second_like.liked_action
       @match = Match.create(first_like_id: @like.id, second_like_id: second_like.id)
       if @match.save
         flash[:notice] = "Match registrado com sucesso!"
+        redirect_to matching_path
+        return
       else
         flash[:alert] = "Erro ao registrar match."
+        redirect_to matchmaking_path
+        return
       end
     end
   end

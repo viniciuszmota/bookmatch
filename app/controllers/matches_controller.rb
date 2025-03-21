@@ -5,18 +5,18 @@ class MatchesController < ApplicationController
     @matches = Match.includes(:first_like, :second_like)
     .where(first_like: { user_id: current_user.id })
     .or(Match.where(second_like: { user_id: current_user.id }))
-    
+
   end
-  
+
 
   def new
     @match = Match.new
   end
 
-  
+
   def show
     @match = Match.find(params[:id])
-    @message = Message.new   
+    @message = Message.new
     @match.messages.unread_by(current_user).update_all(read: true)
   end
 
@@ -25,6 +25,7 @@ class MatchesController < ApplicationController
     @match = Match.new(match_params)
     if @match.save
       flash[:notice] = "Match registrado com sucesso!"
+      redirect_to matching_path
     else
       render :new
     end
