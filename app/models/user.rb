@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  before_save :capitalize_name
   has_one_attached :photo
   has_many :books
 
@@ -16,5 +17,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  private
 
+  def capitalize_name
+    self.full_name = full_name.split.map(&:capitalize).join(' ') if full_name.present?
+  end
 end
