@@ -13,6 +13,15 @@
   margin-top: 30px;
 }
 
+.form-text {
+  flex-direction: column;
+  align-items: center;
+  padding: 0 10px;
+  color: #FFFCFC;
+  font-size: 14px;
+  display: none;
+}
+
 .form-inputs {
   width: 100%;
   margin-bottom: 2vh;

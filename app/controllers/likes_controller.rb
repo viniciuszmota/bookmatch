@@ -25,9 +25,8 @@ def create
         return
       end
     end
+   redirect_to matchmaking_path
   end
-  redirect_to matchmaking_path
-end
 
 
   private

@@ -1,9 +1,9 @@
-<div class="sign-up-container">
+
   <div class="sign-up-logo">
     <%= image_tag "logo-principal.png", alt: "Logo BookMatch" %>
   </div>
-
-  <div class="sign-up-top">
+<div class="orange-container">
+  <div class="top">
     <p><strong>Bem-vindo ao BookMatch!<strong></p>
     <p>Preencha suas informações pessoais abaixo</p>
   </div>
@@ -12,21 +12,22 @@
     <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= f.error_notification %>
 
-      <div class="form-inputs">
+      <div class="form-inputs" data-controller="upload">
         <%= f.input :full_name,
                     required: true,
-                    label: "Nome e Sobrenome",
+                    label: false,
                     input_html: { placeholder: "Nome e Sobrenome", class: "center-placeholder" } %>
         <%= f.input :email,
                     required: false,
                     autofocus: true,
                     label: false,
                     input_html: { autocomplete: "email", placeholder: "Seu e-mail", class: "center-placeholder" } %>
-        <%= f.input :gender,
-                    required: true,
-                    label: "Selecione seu gênero",
-                    collection: ["Masculino", "Feminino", "Outros", "Prefiro não dizer"],
-                    input_html: { class: "center-placeholder" } %>
+<%= f.input :gender,
+            required: true,
+            label: false,
+            collection: ["Masculino", "Feminino", "Outros", "Prefiro não dizer"],
+            include_blank: "Selecione seu gênero",
+            input_html: { class: "center-placeholder" } %>
         <%= f.input :password,
                     required: true,
                     label: false,
@@ -37,14 +38,24 @@
                     label: false,
                     input_html: { autocomplete: "new-password", placeholder: "Confirme sua senha", class: "center-placeholder" } %>
 
-        <%= f.input :photo, label: "Foto", as: :file %>
+        <%= f.input :photo, as: :file, input_html: {
+          class: "d-none",
+          id: "file-upload",
+          data: {
+            action: "change->upload#updateLabel"
+          }
+        }, label: false %>
+
+        <label for="file-upload" class="upload-button">
+          <span data-upload-target="label">📷 Carregar Foto</span>
+        </label>
       </div>
 
-      <div class="form-actions">
-        <%= f.button :submit, "Sign up" %>
-      </div>
+      <div class="create-account-button">
+        <%= f.button :submit, "Criar conta" %>
+        <div class="back">
+        <%= link_to "Voltar", root_path %>
+        </div>
+        </div>
     <% end %>
   </div>
-
-  <%= render "devise/shared/links" %>
-</div>

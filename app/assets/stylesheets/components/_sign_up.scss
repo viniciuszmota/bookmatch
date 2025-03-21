@@ -43,3 +43,27 @@
   align-items: center;
   padding: 0 10px;
 }
+
+select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-color: red;
+  border-radius: 12px;
+
+}
+
+select option {
+  background-color: #FFFCFC;
+  color: black;
+}
+
+select option:checked {
+  background-color: #FFFCFC !important;
+  color: #FF5000 !important;
+}
+
+select option:enabled {
+  background-color: #FFFCFC!important;
+  color: #FF5000 !important;
+}
