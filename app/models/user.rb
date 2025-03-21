@@ -16,8 +16,5 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  validates :full_name, presence: true, format: {
-    with: /\A[A-Za-zÀ-ÿ]+(?: [A-Za-zÀ-ÿ]+)+\z/,
-    message: "deve conter pelo menos um nome e um sobrenome, e apenas letras."
-  }
+
 end

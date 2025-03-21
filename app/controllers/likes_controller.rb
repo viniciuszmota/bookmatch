@@ -1,9 +1,7 @@
 class LikesController < ApplicationController
-    def new
-      @like = Like.new
-    end
-    
-
+  def new
+    @like = Like.new
+  end
     
   def create
     @like = Like.new(like_params)
@@ -21,16 +19,12 @@ class LikesController < ApplicationController
         end
       end
     end
-    redirect_to matchmaking_path
+   redirect_to matchmaking_path
   end
 
-  
-    private
-    def like_params
-      params.slice(:book_id, :user_id, :liked_action).permit!
-    end
+
+  private
+  def like_params
+    params.slice(:book_id, :user_id, :liked_action).permit!
+  end
 end
-
-
-  
-
