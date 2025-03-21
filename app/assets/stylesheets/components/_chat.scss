@@ -32,17 +32,17 @@
 }
 
 /* Mensagens do usuário */
-.my-message {
+.message-sent {
   align-self: flex-end;
   background-color: #222222;
   color: #FFFCFC !important;
   text-align: right;
-  border-radius: 12px 12px 5px 12px; 
+  border-radius: 12px 12px 5px 12px;
   padding: 8px;
 }
 
 
-.other-message {
+.message-received {
   align-self: flex-start;
   background-color: #ffffff;
   text-align: left;

@@ -17,6 +17,7 @@ class MatchesController < ApplicationController
   def show
     @match = Match.find(params[:id])
     @message = Message.new
+    @user = current_user
     @match.messages.unread_by(current_user).update_all(read: true)
   end
 
