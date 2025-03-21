@@ -1,0 +1,48 @@
+.main-image-avatar {
+  position: absolute;
+  right: 50%;
+  top: 50%;
+  border-radius: 50%;
+  border: solid 2px #FF5000;
+  overflow: hidden;
+  transform: translateX(50%);
+}
+
+.index-books-menu {
+  height: 110px;
+  align-items: start;
+
+}
+
+#index-books-logo {
+  top: -15%;
+  position: absolute;
+}
+
+#index-books-container {
+  padding-top: 40px;
+}
+
+.index-books-buttons{
+  border-radius: 20px;
+  overflow: hidden;
+
+}
+
+#index-books-settings{
+  background-color: #FF5000;
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  right: 10px;
+  top: 130%; 
+}
+
+#index-book-username {
+  font-weight: bold;
+}
+
