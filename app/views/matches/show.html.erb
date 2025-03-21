@@ -14,42 +14,37 @@
   </div>
 </div>
 
+<!-- Turbo Streams para atualização do chat -->
+<%= turbo_stream_from "match_#{@match.id}_messages" %>
+
 <div class="chat">
-  <%= simple_form_for [@match, @message],
-    html: { class: "d-flex", data: { controller: "reset-form", action: "turbo:submit-end->reset-form#reset", target: "reset-form.form" } } do |f| %>
-
-    <%= turbo_stream_from "match_#{@match.id}_messages" %>
+  <div id="messages" class="messages">
+    <% @match.messages.each do |message| %>
+      <%= render partial: "messages/message",  locals: { message: message, user: current_user } %>
+    <% end %>
   </div>
-  <div class="chat">
-    <div id="messages" class="messages">
-      <% @match.messages.each do |message| %>
-        <div class="message-container <%= message.user_id == current_user.id ? 'my-message' : 'other-message' %>">
-          <small>
-            <strong><%= message.user.full_name %></strong>
-            <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i>
-          </small>
-          <p><%= message.content %></p>
-        </div>
-      <% end %>
-    </div>
+</div>
 
-    <div id="messages" class="chat">
-      <% other_user = (current_user.id == Like.find(@match.first_like_id).user_id) ?
-          Like.find(@match.second_like_id).user :
-          Like.find(@match.first_like_id).user %>
-    </div>
-  </div>
+<div class="chat">
+  <% other_user = (current_user.id == Like.find(@match.first_like_id).user_id) ?
+      Like.find(@match.second_like_id).user :
+      Like.find(@match.first_like_id).user %>
+</div>
+
+<!-- Formulário para envio de mensagens -->
+<%= simple_form_for [@match, @message], html: {
+  class: "d-flex",
+  data: { controller: "reset-form", action: "turbo:submit-end->reset-form#reset", target: "reset-form.form" }
+} do |f| %>
 
   <div class="send">
-    <div class="chat-input-container">
+    <div class="chat-input-container justify-content-center">
       <%= f.input :content,
         label: false,
-        placeholder: "Escreva aqui... #{other_user.full_name}",
+        placeholder: "Escreva aqui sua mensagem...",
         style: "background-color: #FFFCFC; color: #222222;",
         class: "message-input" %>
-      <div class="chat">
-        <%= f.submit "Send", class: "send-button" %>
-      </div>
+      <%= f.submit "Send", class: "send-button" %>
     </div>
   </div>
 <% end %>
