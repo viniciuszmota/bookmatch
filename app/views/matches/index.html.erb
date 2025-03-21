@@ -10,15 +10,15 @@
   </div>
 
   <div class="icon-left">
-    <%= image_tag "search-normal.png", alt: "Procurar" %>
+    <%= image_tag "settings.png", alt: "Configurações" %>
   </div>
 </div>
+
+
+</div>
+<div class="your-match">
 <div class="matches-index-chat">
   <% if @matches.any? %>
-  <div class="your-match">
-  <div class="top">
-    <p>Matches recentes</p>
-  </div>
     <div id="index-avatar-container">
      <% shown_users = Set.new %>
       <% @matches.each do |match| %>
@@ -37,8 +37,7 @@
         <% end %>
       <% end %>
       </div>
-
-    </div>
+</div>
   <div class="white-container-match">
     <div class="top-match">
     <p>Mensagens</p>
