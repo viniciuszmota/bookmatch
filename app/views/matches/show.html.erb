@@ -18,10 +18,12 @@
 <%= turbo_stream_from "match_#{@match.id}_messages" %>
 
 <div class="chat">
-  <div id="messages" class="messages">
-    <% @match.messages.each do |message| %>
-      <%= render partial: "messages/message",  locals: { message: message, user: current_user } %>
-    <% end %>
+  <div class="chat-message-container">
+    <div id="messages" class="messages">
+      <% @match.messages.each do |message| %>
+        <%= render partial: "messages/message",  locals: { message: message, user: current_user } %>
+      <% end %>
+    </div>
   </div>
 </div>
 
@@ -31,20 +33,22 @@
       Like.find(@match.first_like_id).user %>
 </div>
 
+<div class="form-centralizer">
 <!-- Formulário para envio de mensagens -->
-<%= simple_form_for [@match, @message], html: {
-  class: "d-flex",
-  data: { controller: "reset-form", action: "turbo:submit-end->reset-form#reset", target: "reset-form.form" }
-} do |f| %>
+  <%= simple_form_for [@match, @message], html: {
+    class: "d-flex",
+    data: { controller: "reset-form", action: "turbo:submit-end->reset-form#reset", target: "reset-form.form" }
+  } do |f| %>
 
-  <div class="send">
-    <div class="chat-input-container justify-content-center">
-      <%= f.input :content,
-        label: false,
-        placeholder: "Escreva aqui sua mensagem...",
-        style: "background-color: #FFFCFC; color: #222222;",
-        class: "message-input" %>
-      <%= f.submit "Send", class: "send-button" %>
+    <div class="send">
+      <div class="chat-input-container justify-content-center">
+        <%= f.input :content,
+          label: false,
+          placeholder: "Escreva aqui sua mensagem...",
+          style: "background-color: #FFFCFC; color: #222222;",
+          class: "message-input" %>
+        <%= f.submit "Send", class: "send-button" %>
+      </div>
     </div>
-  </div>
-<% end %>
+  <% end %>
+</div>

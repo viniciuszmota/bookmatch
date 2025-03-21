@@ -1,22 +1,31 @@
 .chat {
+  margin-top: 60px;
   display: flex;
   justify-content: center;
   align-items: center;
-
+  
 }
 
-#new_message {
-  display: none;
+.chat-input-container {
+  width: 96vw;
+}
+
+.chat-message-container {
+  background-color: #FF5000;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 45px 4px 70px 4px;
 }
 
 .messages {
   display: flex;
   flex-direction: column;
-  height: calc(90vh - 60px); /* Ajuste para considerar o campo de entrada */
+  height: calc(100vh - 60px); /* Ajuste para considerar o campo de entrada */
   width: 100%;
-  padding: 10px;
+  margin-bottom: 5px;
   overflow-y: auto;
-  background-color: #FF5000;
 }
 
 /* Estilo de cada mensagem */
@@ -52,10 +61,11 @@
   padding: 8px;
 }
 
-/* Nome e data */
+/* Nome e data CHECAR UTILIDADE */
 .message-container small {
   font-size: 11px; /* Pequena redução */
   color: #FF5000;
+  margin-top: 60px;
 }
 
 /* Campo de entrada */
@@ -68,6 +78,7 @@ form.d-flex {
   display: flex;
   align-items: center;
   gap: 8px;
+  border: solid 2px red;
 }
 
 /* Input responsivo */
@@ -79,10 +90,17 @@ form.d-flex input {
   font-size: 14px;
 }
 
+
+.form-centralizer{
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 /* Botão de envio */
 .send-button {
   display: flex;
-  width: 327px;
+  width: 97vw;
   height: 40px;
   padding: 10px;
   justify-content: center;
