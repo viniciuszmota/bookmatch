@@ -140,6 +140,7 @@ align-items: center;
 a {
   text-decoration: none;
   color: white;
+
 }
 
 .alert {
@@ -147,4 +148,12 @@ a {
   bottom: 16px;
   right: 16px;
   z-index: 1000;
+}
+
+.back {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+  margin-top: 10px;
 }
