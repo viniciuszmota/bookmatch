@@ -34,3 +34,4 @@ def create
     params.slice(:book_id, :user_id, :liked_action).permit!
   end
 end
+end
