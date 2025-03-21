@@ -10,16 +10,14 @@
   </div>
 
   <div class="icon-left">
-    <%= image_tag "search-normal.png", alt: "Procurar" %>
+    <%= image_tag "settings.png", alt: "Configurações" %>
   </div>
 </div>
 
 <div class="container">
   <div class="top-container">
-    <p class="top"><%= current_user.full_name.split.map(&:capitalize).join(' ') %></p>
-    <div class="icon-left">
-      <%= image_tag "settings.png", alt: "Configurações" %>
-    </div>
+    <p class="top">Bem Vindo, <%= current_user.full_name.split.map(&:capitalize).join(' ') %></p>
+
   </div>
 
   <div class="top-general-container">

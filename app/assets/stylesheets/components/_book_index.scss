@@ -14,7 +14,7 @@
 
 }
 
-#index-books-logo {
+.index-books-logo {
   top: -21%;
   position: absolute;
 }
@@ -30,7 +30,6 @@
 }
 
 #index-books-settings{
-  background-color: #FF5000;
   border-radius: 50%;
   height: 30px;
   width: 30px;
@@ -39,10 +38,9 @@
   justify-content: center;
   position: absolute;
   right: 10px;
-  top: 130%; 
+  top: 130%;
 }
 
 #index-book-username {
   font-weight: bold;
 }
-
