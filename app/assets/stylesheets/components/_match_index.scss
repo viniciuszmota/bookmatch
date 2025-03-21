@@ -1,19 +1,22 @@
 .matches-index-chat{
-  background-color: white;
+  background-color: #222222;
   height: 100vh;
   padding: 15px;
   i {
     color: rgb(80, 80, 80)
   }
   margin-top: 50px;
-  
+
 }
 #index-avatar-container {
   display: flex;
   overflow-x: scroll;
+  text-align: center;
   gap: 6px;
+  margin-top: 20px;
+  color: #FFFCFC;
 }
-.message-content-index { 
+.message-content-index {
   width: 150%;
   overflow: hidden;
 }
@@ -21,13 +24,15 @@
   font-size: 14px;
 }
 #index-message-container{
-  width: 100%;
+  width: 95%;
   margin-left: 0px;
+  background-color: #FFFCFC;
+  border-radius: 12px 12px 12px 12px;
+  border: solid 1.5px #FF5000;
 }
-.chat-container { 
+.chat-container {
   border-radius: 10px;
   padding: 10px;
-  border: solid 1.5px rgba(13, 13, 13, 0.138);
   display: flex;
   align-items: center;
   gap: 20px;
@@ -40,6 +45,7 @@
   height: 70px;
   border-radius: 50%;
   display: flex;
+  border: 2px solid #FF5000;
 }
 
 .relative-positioning{
@@ -84,4 +90,39 @@ ul {
   height: 20px;
   font-weight: bold;
   border-radius: 50%;
+}
+
+.your-match {
+  width: 100%;
+  height: 90px;
+}
+
+
+.white-container-match {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 65vh;
+  flex-shrink: 0;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  background: #FFFCFC;
+  box-sizing: border-box;
+  color: $font-color;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.top-match {
+  text-align: center;
+  font-weight: 400;
+  line-height: 1.5;
+  margin-top: 2vh;
+  margin-bottom: 5px;
+  font-size: 16px;
+  width: 100%;
+  color: #ff5000;
 }

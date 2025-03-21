@@ -15,9 +15,12 @@
 </div>
 <div class="matches-index-chat">
   <% if @matches.any? %>
-    <h2>Seus Matches</h2>
+  <div class="your-match">
+  <div class="top">
+    <p>Matches recentes</p>
+  </div>
     <div id="index-avatar-container">
-     <% shown_users = Set.new %> <!-- Armazena IDs de usuários já exibidos -->
+     <% shown_users = Set.new %>
       <% @matches.each do |match| %>
         <% if match.first_like.user.id == current_user.id ? second_user = match.second_like.user : second_user = match.first_like.user %>
         <% end %>
@@ -33,11 +36,13 @@
         </div>
         <% end %>
       <% end %>
-        
+      </div>
 
     </div>
-
-    <h2>Messages</h2>
+  <div class="white-container-match">
+    <div class="top-match">
+    <p>Mensagens</p>
+  </div>
       <div id="index-message-container">
         <ul>
           <% @matches.each do |match| %>
@@ -62,7 +67,7 @@
                     <%else%>
                       <p><%= match.first_like.user == current_user ? match.second_like.book.title : match.first_like.book.title %></p>
                     <% end %>
-                  </div>               
+                  </div>
                 </div>
                 <div id="index-message-alert-time">
                   <%=match.created_at.strftime("%H:%M")%>
@@ -79,4 +84,5 @@
   <% else %>
     <p>Você ainda não tem matches.</p>
   <% end %>
+</div>
 </div>
