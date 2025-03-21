@@ -8,6 +8,7 @@
   gap: 8px;
   align-self: stretch;
   border-radius: 8px;
+  border: 1px solid #FFFCFC;
   background: #222222;
   color: #FFFCFC;
   font-size: 16px;
@@ -55,6 +56,7 @@
   gap: 8px;
   align-self: stretch;
   border-radius: 8px;
+  border: 1px solid #FFFCFC;
   background: #222222;
   color: #FFFCFC;
   font-size: 14px;
@@ -72,6 +74,22 @@
   border-radius: 8px;
   border: 1px solid #222222;
   background: #FF5000;
+  font-size: 16px;
+  color: #FFFCFC;
+}
+
+.upload-button {
+  display: flex;
+  width: 327px;
+  height: 40px;
+  padding: 0px 16px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  align-self: stretch;
+  border-radius: 8px;
+  border: 1px solid #FFFCFC;
+  background: #222222;
   font-size: 16px;
   color: #FFFCFC;
 }
