@@ -1,6 +1,6 @@
 <div class="white-container index-books-menu">
   <div class="icon-right">
-    <%= link_to books_path do %>
+    <%= link_to books_path, method: :delete do %>
       <%= image_tag "arrow-left.png", alt: "Voltar" %>
     <% end %>
   </div>
@@ -9,14 +9,13 @@
     <%= image_tag "logo-black.png", alt: "Logo BookMatch" %>
   </div>
 
-  <div class="icon-left">
-  </div>
+  <div class="icon-left"></div>
 
-  <%= link_to matches_path do%>
+  <%= link_to edit_user_registration_path do %>
     <div class="icon-left" id="index-books-settings">
       <%= image_tag "settings.png", alt: "Configurações" %>
     </div>
-  <%end%>
+  <% end %>
 
   <div class="main-image-avatar">
     <% if current_user.photo.attached? %>
@@ -24,11 +23,10 @@
     <% else %>
       <%= image_tag "no-image.jpg", width: 100, height: 100 %>
     <% end %>
-
   </div>
 </div>
 
-<div class="container" id="index-books-container">
+<div class="master-container" id="index-books-container">
   <div class="top-container container-image">
     <p class="top">Bem Vindo, <%= current_user.full_name.split.map(&:capitalize).join(' ') %></p>
   </div>
@@ -42,13 +40,15 @@
             Meus Livros
           </button>
         <% end %>
-        <%= link_to new_book_path, class: "profile-button-my-books-link" do %>
+
+        <%= link_to matches_path, class: "profile-button-my-books-link" do %>
           <button id="profile-button-my-books" class="profile-button-my-books">
             <%= image_tag "chat.png", alt: "Cadastrar Livro", class: "icon-above" %>
             Chat
           </button>
         <% end %>
-        <%= link_to matches_path, class: "profile-button-matches-link" do %>
+
+        <%= link_to matchmaking_path, class: "profile-button-matches-link" do %>
           <button id="profile-button-matches" class="profile-button-my-books">
             <%= image_tag "matches.png", alt: "Matches", class: "icon-above" %>
             Matches

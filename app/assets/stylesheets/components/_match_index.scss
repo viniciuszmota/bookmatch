@@ -1,5 +1,5 @@
 .matches-index-chat{
-  background-color: #222222;
+  background-color: transparent;
   height: 100vh;
   padding: 15px;
   i {
@@ -10,11 +10,11 @@
 }
 #index-avatar-container {
   display: flex;
-  overflow-x: scroll;
   text-align: center;
   gap: 6px;
-  margin-top: 20px;
+  margin-top: 43px;
   color: #FFFCFC;
+  position: fixed;
 }
 .message-content-index {
   width: 150%;
@@ -92,11 +92,7 @@ ul {
   border-radius: 50%;
 }
 
-.your-match {
-  width: 150px;
-  height: 90px;
-  margin-top: 90px;
-}
+
 
 
 .white-container-match {
