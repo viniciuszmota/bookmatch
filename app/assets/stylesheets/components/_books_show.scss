@@ -1,3 +1,7 @@
+.white-background-matchmaking {
+  background-color: #FFFCFC;
+}
+
 #header-books-show {
   display:flex;
   position: absolute;
@@ -18,15 +22,18 @@
   }
 }
 #show-image-book ul:first-of-type{
+
+  margin-top: 100px;
   position: relative;
   width: 280px;
-  height: 400px;
+  height: 300px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   li {
     position: absolute;
     left: 0px;
+    color: white !important;
   }
 
 }
@@ -53,8 +60,9 @@
 }
 #blur-effect{
   width: 100%;
-  height: 100%;
-  position: absolute;
+  height: 132px;
+  position: relative;
+  top: -128px;
   border-top-left-radius: 10px; /* Radius no canto superior esquerdo */
   border-top-right-radius: 10px; /* Radius no canto superior direito */
   bottom: 0px;
@@ -64,17 +72,13 @@
   border: solid 1px green;
 }
 #show-page{
-  margin-top: 80px;
-}
-.notification-bell {
-  width: 30px;
-  height: 50px;
-  background-color: red;
+  margin-top: 90px;
+  height: 100vh;
 }
 
 #show-books-centralize{
   text-align: center;
-  margin-top: 30px;
+  margin-top: 80px;
   display: flex;
   justify-content: center;
 }
@@ -95,15 +99,45 @@
   justify-content: space-around;
   margin-top: 30px;
   align-items: center;
-  background-color: black;
+  background-color: #222222;
   width: 100%;
   height: 100px;
   position: absolute;
   bottom: 0px;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
 }
 
 .footer-icons{
   width: 30px;
   height: 30px;
-  background-color: red;
+  z-index: 9999;
+}
+
+.white-background-matchmaking li,
+.white-background-matchmaking p {
+  color: white;
+  font-weight: bolder;
+  font-size: 18px;
+}
+
+.white-background-matchmaking p {
+  font-size: 20px;
+}
+
+
+.book-photo-matchmaking {
+  border-radius: 12px;
+}
+
+.icon-button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.like-icon, .dislike-icon {
+  width: 50px; /* Ajuste conforme necessário */
+  height: 50px;
 }
