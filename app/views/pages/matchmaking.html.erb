@@ -1,15 +1,28 @@
-<div id="header-books-show">
-  <div class="notification-bell"></div>
-  <div class="brand-logo"></div>
-  <div id="filter-icon-header"></div>
+<div class="white-background-matchmaking">
+
+<div class="white-container">
+  <div class="icon-right">
+    <%= link_to books_path do %>
+      <%= image_tag "arrow-left.png", alt: "Voltar" %>
+    <% end %>
+  </div>
+
+  <div class="logo-black">
+    <%= image_tag "logo-black.png", alt: "Logo BookMatch" %>
+  </div>
+
+  <div class="icon-left">
+    <%= image_tag "settings.png", alt: "Configurações" %>
+  </div>
 </div>
+
 <div id="show-page">
   <% if @book %>
     <div id="show-image-book">
       <ul>
       <% if @book.photos.attached? %>
         <li>
-          <%= image_tag @book.photos.first, width: 280, height: 400, alt: "#{@book.title} photo" %>
+          <%= image_tag @book.photos.first, width: 280, height: 400, alt: "#{@book.title} photo", class: "book-photo-matchmaking", crop: :fill %>
         </li>
       <% else %>
         <li>
@@ -18,39 +31,62 @@
     <% end %>
       </ul>
       <ul id="show-book-info">
+        <p><%= @book.user.full_name.split.first %></p>
         <li>Título: <%= @book.title %></li>
         <li>Autor: <%= @book.author %></li>
-        <li>Condição: <%= @book.condition %></li>
+        <li>Condição: <%= @book.condition.capitalize %></li>
         <div id="blur-effect"></div>
       </ul>
 </div>
 <div id="show-books-centralize">
   <div id="show-books-bottom-buttons">
-    <%= button_to "Sair", destroy_user_session_path, method: :delete %>
+    <%= form_with model: @like, url: likes_path, method: :post, data: { turbo_stream: true } do |f| %>
+      <%= f.hidden_field :book_id, value: @book.id %>
+      <%= f.hidden_field :user_id, value: @user.id %>
+      <%= f.hidden_field :liked_action, value: false %>
+
+      <button type="submit" class="icon-button">
+        <%= image_tag "close-circle.png", alt: "Aceitar", class: "dislike-icon" %>
+      </button>
+    <% end %>
 
     <%= form_with model: @like, url: likes_path, method: :post, data: { turbo_stream: true } do |f| %>
       <%= f.hidden_field :book_id, value: @book.id %>
       <%= f.hidden_field :user_id, value: @user.id %>
       <%= f.hidden_field :liked_action, value: true %>
-      <%= f.submit "Aceitar" %>
+
+    <button type="submit" class="icon-button">
+      <%= image_tag "heart.png", alt: "Aceitar", class: "like-icon" %>
+    </button>
     <% end %>
 
-    <%= form_with model: @like, url: likes_path, method: :post, data: { turbo_stream: true } do |f| %>
-      <%= f.hidden_field :book_id, value: @book.id %>
-      <%= f.hidden_field :user_id, value: @user.id %>
-      <%= f.hidden_field :liked_action, value: false %>
-      <%= f.submit "Recusar" %>
-    <% end %>
-    <%= link_to "Voltar", books_path %>
   </div>
 </div>
 <%else%>
-  <p>NAO TEM MAIS LIVROS, VÁ LER UM LIVRO...</p>
+  <p>NÃO TEM MAIS LIVROS, VÁ LER UM LIVRO...</p>
 <% end %>
 
 <div id="footer-options">
-<div class="footer-icons"></div>
-<div class="footer-icons"></div>
-<div class="footer-icons"></div>
-<div class="footer-icons"></div>
+<div class="footer-icons">
+  <%= link_to matches_path do %>
+      <%= image_tag "mmaking.png", alt: "Matches" %>
+    <% end %>
+</div>
+<div class="footer-icons">
+  <%= link_to matches_path do %>
+    <%= image_tag "checkedheart.png", alt: "Matches" %>
+  <% end %>
+</div>
+<div class="footer-icons">
+  <%= link_to matches_path do %>
+    <%= image_tag "matchchat.png", alt: "Matches" %>
+  <% end %>
+</div>
+<div class="footer-icons">
+  <%= link_to books_path do %>
+    <%= image_tag "matchprofile.png", alt: "Inicio" %>
+  <% end %>
+</div>
+</div>
+</div>
 </div>
