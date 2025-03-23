@@ -1,91 +1,105 @@
-<div class="white-container">
-  <div class="icon-right">
-    <%= link_to books_path do %>
-      <%= image_tag "arrow-left.png", alt: "Voltar" %>
+<div class="master-contaier">
+  <div class="white-container index-books-menu">
+    <div class="icon-right">
+      <%= link_to books_path do %>
+        <%= image_tag "arrow-left.png", alt: "Voltar" %>
+      <% end %>
+    </div>
+
+    <div class="logo-black index-books-logo" id="index-books-logo">
+      <%= image_tag "logo-black.png", alt: "Logo BookMatch" %>
+    </div>
+
+    <div class="icon-left"></div>
+
+    <%= link_to edit_user_registration_path do %>
+      <div class="icon-left" id="index-books-settings">
+        <%= image_tag "settings.png", alt: "Configurações" %>
+      </div>
     <% end %>
+
+    <div class="main-image-avatar">
+      <% if current_user.photo.attached? %>
+        <%= image_tag current_user.photo, width: 100, height: 100 %>
+      <% else %>
+        <%= image_tag "no-image.jpg", width: 100, height: 100 %>
+      <% end %>
+    </div>
   </div>
 
-  <div class="logo-black">
-    <%= image_tag "logo-black.png", alt: "Logo BookMatch" %>
-  </div>
+  <div class="master-container" id="index-books-container">
+    <div class="top-container container-image">
+      <p class="top">Bem Vindo, <%= current_user.full_name.split.map(&:capitalize).join(' ') %></p>
+    </div>
 
-  <div class="icon-left">
-    <%= image_tag "settings.png", alt: "Configurações" %>
-  </div>
-</div>
+    <div class="top-general-container">
+      <div class="top-white-container index-books-buttons">
+        <div class="profile-button">
+          <%= link_to books_path, class: "profile-button-my-books-link" do %>
+            <button id="profile-button-my-books" class="profile-button-my-books">
+              <%= image_tag "my-books.png", alt: "Meus Livros", class: "icon-above" %>
+              Meus Livros
+            </button>
+          <% end %>
 
-<div class="container">
-  <div class="top-container">
-    <p class="top">Bem Vindo, <%= current_user.full_name.split.map(&:capitalize).join(' ') %></p>
+          <%= link_to matches_path, class: "profile-button-my-books-link" do %>
+            <button id="profile-button-my-books" class="profile-button-my-books">
+              <%= image_tag "chat.png", alt: "Cadastrar Livro", class: "icon-above" %>
+              Chat
+            </button>
+          <% end %>
 
-  </div>
-
-  <div class="top-general-container">
-    <div class="top-white-container">
-      <div class="profile-button">
-        <%= link_to books_path, class: "profile-button-my-books-link" do %>
-          <button id="profile-button-my-books" class="profile-button-my-books">
-            <%= image_tag "my-books.png", alt: "Meus Livros", class: "icon-above" %>
-            Meus Livros
-          </button>
-        <% end %>
-
-        <button id="profile-button-chat" class="profile-button-chat">
-          <%= image_tag "chat.png", alt: "Chat", class: "icon-above" %>
-          Chat
-        </button>
-
-        <%= link_to matches_path, class: "profile-button-matches-link" do %>
-          <button id="profile-button-matches" class="profile-button-matches">
-            <%= image_tag "matches.png", alt: "Matches", class: "icon-above" %>
-            Matches
-          </button>
-        <% end %>
+          <%= link_to matchmaking_path, class: "profile-button-matches-link" do %>
+            <button id="profile-button-matches" class="profile-button-my-books">
+              <%= image_tag "matches.png", alt: "Matches", class: "icon-above" %>
+              Matches
+            </button>
+          <% end %>
+        </div>
       </div>
     </div>
 
-
- <div class="form">
-    <%= simple_form_for @book do |f| %>
-      <%= f.input :title,
-        required: true,
-        label: false,
-        input_html: { placeholder: "Título do livro", class: "center-placeholder", style: "background-color: white;" } %>
-
-      <%= f.input :author,
-        required: true,
-        label: false,
-        input_html: { placeholder: "Autor", class: "center-placeholder", style: "background-color: white;" } %>
-
-      <%= f.input :publisher,
-        required: true,
-        label: false,
-        input_html: { placeholder: "Editora", class: "center-placeholder", style: "background-color: white;" } %>
-
-      <%= f.input :condition,
-        required: true,
-        label: false,
-        collection: Book.conditions.keys.map { |key| [key.humanize, key] },
-        include_blank: "Estado do livro",
-        input_html: { class: "form-select center-placeholder", style: "background-color: white;" } %>
-
-      <div class="form-inputs">
-        <%= f.input :tag_list,
+    <div class="form">
+      <%= simple_form_for @book do |f| %>
+        <%= f.input :title,
           required: true,
           label: false,
-          collection: Book::GENRES,
-          include_blank: "Gênero",
+          input_html: { placeholder: "Título do livro", class: "center-placeholder", style: "background-color: white;" } %>
+
+        <%= f.input :author,
+          required: true,
+          label: false,
+          input_html: { placeholder: "Autor", class: "center-placeholder", style: "background-color: white;" } %>
+
+        <%= f.input :publisher,
+          required: true,
+          label: false,
+          input_html: { placeholder: "Editora", class: "center-placeholder", style: "background-color: white;" } %>
+
+        <%= f.input :condition,
+          required: true,
+          label: false,
+          collection: Book.conditions.keys.map { |key| [key.humanize, key] },
+          include_blank: "Estado do livro",
           input_html: { class: "form-select center-placeholder", style: "background-color: white;" } %>
-      </div>
 
-      <div class="form-inputs">
-        <%= f.input :photos, label: false, as: :file, input_html: { multiple: true, style: "background-color: white;"  } %>
-      </div>
+        <div class="form-inputs">
+          <%= f.input :tag_list,
+            required: true,
+            label: false,
+            collection: Book::GENRES,
+            include_blank: "Gênero",
+            input_html: { class: "form-select center-placeholder", style: "background-color: white;" } %>
+        </div>
 
-      <div class="edit-book-button">
-        <%= f.submit "Editar livro", class: "edit-book-button" %>
-      </div>
-    <% end %>
-  </div>
+        <div class="form-inputs">
+          <%= f.input :photos, label: false, as: :file, input_html: { multiple: true, style: "background-color: white;" } %>
+        </div>
 
-    <%= link_to 'Voltar', books_path %>
+        <div class="edit-book-button">
+          <%= f.submit "Editar livro", class: "edit-book-button" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
