@@ -44,3 +44,20 @@
 #index-book-username {
   font-weight: bold;
 }
+
+.delete-button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  z-index: 9999;
+  top: -58px;
+  left: 290px;
+}
+
+.delete-button img {
+  width: 20px; /* Ajuste conforme necessário */
+  height: auto;
+}

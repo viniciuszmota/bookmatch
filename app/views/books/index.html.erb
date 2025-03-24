@@ -75,7 +75,13 @@
             </ul>
           </div>
         <% end %>
-      <% end %>
+
+          <%= button_to book_path(book), method: :delete, class: "delete-button", data: { turbo: false } do %>
+            <%= image_tag "trash.png", alt: "Deletar", class: "trash-icon" %>
+          <% end %>
+
+
+        <% end %>
 
       <%= link_to new_book_path(:user), class: "add-book-button" do %>
         <span>Adicionar livro</span>
