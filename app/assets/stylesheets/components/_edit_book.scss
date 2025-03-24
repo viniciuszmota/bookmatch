@@ -44,3 +44,26 @@
 #edit-book-username {
   font-weight: bold;
 }
+
+
+
+/* Estiliza o botão dentro do formulário */
+.delete-book-button input[type="submit"] {
+  display: flex;
+  width: 327px;
+  height: 40px;
+  padding: 0px 16px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  align-self: stretch;
+  border-radius: 8px;
+  border: 1px solid #222222;
+  background: #FF5000;
+  font-size: 16px;
+  color: #FFFCFC;
+  margin-top: 15px;
+  cursor: pointer;
+}
+
+/* Ajuste o texto dentro do botão */
