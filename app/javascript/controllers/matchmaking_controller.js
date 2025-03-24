@@ -2,44 +2,34 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="matchmaking"
 export default class extends Controller {
-  static targets = ["book", "formLike", "formDislike"]
+  static targets = ["bookCardMatching"]  // Define o alvo do livro que vai ser exibido e animado
+
   connect() {
-    this.startX = 0;
-    this.currentBook = this.bookTargets[0];
+    console.log("Matchmaking conectado!");
 
-    this.currentBook.addEventListener("touchstart", (e) => this.startTouch(e));
-    this.currentBook.addEventListener("touchmove", (e) => this.moveTouch(e));
-    this.currentBook.addEventListener("touchend", (e) => this.endTouch(e));
-  }
-
-  endTouche(event) {
-    let touchX = event.changedTouches[0].clientX;
-    let deltaX = touchX - this.startX;
-
-    if (deltaX > 100) {
-      this.like();
-    } else if (deltaX < -100) {
-      this.dislike();
-    } else {
-      this.currentBook.style.transform = "translateX(0) rotate(0)";
+    // Se houver um livro a ser exibido, aplique a animação de match
+    if (this.bookCardMatchingTargets.length > 0) {
+      this.showMatchingBooks();
     }
   }
 
-  like() {
-    this.currentBook.style.transform = "translate(300px) rotate(20deg)";
-    this.currentBook.style.opacity = "0";
+  showMatchingBooks() {
+    // Obtém os livros
+    const bookCards = this.bookCardMatchingTargets;
 
+    // Adiciona a classe para animar os livros
+    bookCards.forEach(bookCard => {
+      // Adiciona um pequeno delay para suavizar a animação
+      setTimeout(() => {
+        bookCard.classList.add("match-active");
+      }, 500); // Delay de 500ms antes de aplicar a animação
+    });
+
+    // Garantir que o display dos livros seja visível
     setTimeout(() => {
-      this.formLikeTarget.requestSubmit();
-    }, 300);
-  }
-
-  dislike() {
-    this.currentBook.style.transform = "translateX(-300px) rotate(-20deg)";
-    this.currentBook.style.opacity = "0"; 
-
-    setTimeout(() => {
-      this.formDislikeTarget.requestSubmit();
-    }, 300);
+      bookCards.forEach(bookCard => {
+        bookCard.style.display = "block";  // Faz os livros aparecerem
+      });
+    }, 500); // Ajuste o delay conforme necessário para que a animação de fade-in funcione
   }
 }
