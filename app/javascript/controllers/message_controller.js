@@ -4,14 +4,17 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
   static values = { userId: Number }
   connect() {
+    console.log('conectado')
     // triggered when a new message is added to the page
     const currentUserId = parseInt(document.body.dataset.currentUserId, 10);
+    console.log(this.userIdValue)
+    console.log(currentUserId)
     if (this.userIdValue === currentUserId) {
-      this.element.classList.add('sent');
-      this.element.classList.remove('received');
+      this.element.classList.add('message-sent');
+      this.element.classList.remove('message-received');
     } else {
-      this.element.classList.add('received');
-      this.element.classList.remove('sent');
+      this.element.classList.add('message-received');
+      this.element.classList.remove('message-sent');
     }
     this.element.scrollIntoView({ behavior: 'smooth' }); // scroll to the bottom of the page
   }
