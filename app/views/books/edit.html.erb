@@ -99,6 +99,11 @@
         <div class="edit-book-button">
           <%= f.submit "Editar livro", class: "edit-book-button" %>
         </div>
+
+        <div class="delete-book-button">
+          <%= button_to "Deletar livro", book_path(@book), method: :delete, class: "delete-book-button", data: { turbo: false } %>
+        </div>
+
       <% end %>
     </div>
   </div>
