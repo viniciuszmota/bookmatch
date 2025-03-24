@@ -3,7 +3,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  
+
 }
 
 .chat-input-container {
@@ -99,29 +99,30 @@ form.d-flex input {
   flex-direction: column;
   justify-content: center;
 }
-/* Botão de envio */
+
 .send-button {
   display: flex;
-  width: 97vw;
+  width: 100%;
   height: 40px;
-  padding: 10px;
+  padding: 0px 16px;
   justify-content: center;
   align-items: center;
-  border-radius: 12px;
-  border: 1px solid #ffffff;
-  background-color: #FF5000;
-  color: white;
-  border: none;
-  cursor: pointer;
-  font-size: 14px;
-  transition: transform 0.2s ease;
+  gap: 8px;
+  align-self: stretch;
+  border-radius: 8px;
+  border: 1px solid #FF5000;
+  background: #222222;
+  font-size: 16px;
+  color: #FFFCFC;
+  text-align: center;
+  margin-top: 20px;
 }
 
 .send-button:active {
-  transform: scale(0.95); /* Diminui o tamanho em 5% */
+  transform: scale(0.95);
 }
 
-/* Ajustes extras para telas de 414x736px */
+
 @media screen and (max-width: 414px) {
   .messages {
     padding: 8px;
