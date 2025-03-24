@@ -28,7 +28,7 @@
 
 <div class="master-container" id="index-books-container">
   <div class="top-container container-image">
-    <p class="top">Bem Vindo, <%= current_user.full_name.split.map(&:capitalize).join(' ') %></p>
+    <p class="top"><%= current_user.full_name.split.map(&:capitalize).join(' ') %></p>
   </div>
 
   <div class="top-general-container">
