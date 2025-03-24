@@ -176,6 +176,75 @@
   margin-top: 20px;
 }
 
+.modify-button  input[type="submit"]  {
+  display: flex;
+  width: 327px;
+  height: 40px;
+  padding: 0px 16px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  align-self: stretch;
+  border-radius: 12px;
+  border: 1px solid #222222;
+  background: #FF5000;
+  font-size: 16px;
+  color: #FFFCFC;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.cancel-button-link {
+  display: flex;
+  width: 327px;
+  height: 40px;
+  padding: 0px 16px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  border-radius: 12px;
+  background: #222222;
+  color: #FFFCFC;
+  font-size: 16px;
+  text-align: center;
+  text-decoration: none;
+  line-height: 40px;
+  margin-top: 20px;
+  border: 1px solid #FFFCFC;
+}
+
+.back-button {
+  display: flex;
+  width: 327px;
+  height: 40px;
+  padding: 0px 16px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  color: #FFFCFC;
+  font-size: 14px;
+  text-align: center;
+  text-decoration: none;
+  line-height: 40px;
+}
+
+.exit-button {
+  display: flex;
+  width: 327px;
+  height: 40px;
+  padding: 0px 16px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  color: #FFFCFC;
+  font-size: 14px;
+  text-align: center;
+  text-decoration: none;
+  line-height: 40px;
+  border: none;
+}
 
 .profile-button {
   display: flex;
