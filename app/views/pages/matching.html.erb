@@ -16,7 +16,7 @@
   </div>
 </div>
 
-<div class="matching-container">
+<div class="matching-container" data-controller="matchmaking">
   <% last_match = @matches.last %>
   <% if last_match %>
     <% if last_match.first_like.user == current_user %>
@@ -27,7 +27,7 @@
       <% matched_like = last_match.first_like %>
     <% end %>
 
-    <div class="book-card-matching show-card">
+    <div class="book-card-matching show-card" data-matchmaking-target="bookCardMatching">
       <div class="books-matched">
         <!-- Livro do usuário logado -->
         <div class="book-card-photo book-left">
@@ -49,22 +49,14 @@
       </div>
     </div>
     <div class="matching-box">
-    <div class="top-matching">MATCH!<div>
-    <div class="matching-title">Os astros se alinharam!<div>
+      <div class="top-matching">MATCH!</div>
+      <div class="matching-title">Os astros se alinharam!</div>
       <div class="matching-title">Seu próximo livro está esperando por você!</div>
       <div class="matching-button-chat">
-    <%= link_to "Chat", match_path(last_match), class: "link-to-chat" %>
-</div>
+        <%= link_to "Chat", match_path(last_match), class: "link-to-chat" %>
+      </div>
+    </div>
   <% else %>
-   <div class="matching-title">Você ainda não tem matches.<div>
+    <div class="matching-title">Você ainda não tem matches.</div>
   <% end %>
-
 </div>
-</div>
-<script>
-  document.addEventListener("DOMContentLoaded", function() {
-    setTimeout(() => {
-      document.querySelector(".book-card-matching").classList.add("match-active");
-    }, 500); // Pequeno delay para suavizar a animação
-  });
-</script>
