@@ -3,7 +3,7 @@
 <div class="white-container">
   <div class="icon-right">
     <%= link_to books_path do %>
-      <%= image_tag "arrow-left-black.png", alt: "Voltar" %>
+      <%= image_tag "arrow-left.png", alt: "Voltar" %>
     <% end %>
   </div>
 
@@ -35,7 +35,7 @@
         <li>Título: <%= @book.title %></li>
         <li>Autor: <%= @book.author %></li>
         <li>Condição: <%= @book.condition.capitalize %></li>
-        <div id="blur-effect"></div>
+        <li><div id="blur-effect"></div></li>
       </ul>
 </div>
 <div id="show-books-centralize">
@@ -67,19 +67,24 @@
 <% end %>
 
 <div id="footer-options">
-  <div class="footer-icons">
-  <%= link_to books_path do %>
-    <%= image_tag "my-books.png", alt: "Matches" %>
-  <% end %>
-</div>
 <div class="footer-icons">
-  <%= link_to matchmaking_path do %>
+  <%= link_to matches_path do %>
       <%= image_tag "mmaking.png", alt: "Matches" %>
     <% end %>
 </div>
 <div class="footer-icons">
   <%= link_to matches_path do %>
-    <%= image_tag "chat.png", alt: "Inicio" %>
+    <%= image_tag "checkedheart.png", alt: "Matches" %>
+  <% end %>
+</div>
+<div class="footer-icons">
+  <%= link_to matches_path do %>
+    <%= image_tag "matchchat.png", alt: "Matches" %>
+  <% end %>
+</div>
+<div class="footer-icons">
+  <%= link_to books_path do %>
+    <%= image_tag "matchprofile.png", alt: "Inicio" %>
   <% end %>
 </div>
 </div>
