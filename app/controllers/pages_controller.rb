@@ -3,7 +3,7 @@ class PagesController < ApplicationController
 
   def home
   end
-  
+
   def matchmaking
     @book = Book
             .where.not(user_id: current_user.id)
@@ -26,3 +26,4 @@ class PagesController < ApplicationController
     .or(Match.where(second_like: { user_id: current_user.id }))
   end
 end
+

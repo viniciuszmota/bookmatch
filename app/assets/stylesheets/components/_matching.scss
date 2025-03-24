@@ -1,5 +1,5 @@
 .matching-container {
-  background-color: white;
+  background-color: #FF5000;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -12,63 +12,18 @@
 
 .link-to-chat {
   text-decoration: none;
-  background-color: #FF5000;
-  width: 336px;
-  height: 60px;
+  background-color: #222222;
+  width: 327px;
+  height: 40px;
   border-radius: 12px;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 20px;
+  border: 1px solid #FFFCFC;
 }
 
-.book-card-matching {
-  padding-top: 20px;
-  display: flex;
-  width: 360px;
-  height: 300px;
-  flex-direction: column;
-  align-items: center;
-  box-shadow: 0 1px 2px rgba(0,0,0,0.2);
-  border: white 1px solid;
-  border-radius: 12px;
-  margin-bottom: 60px;
-  position: relative; /* Para controlar o posicionamento do h2 */
-}
 
-/* Estilos das fotos dos livros */
-.books-matched {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  padding-bottom: 124px;
-}
-
-.book-card-photo {
-  padding-top: 100px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
-
-// a borda é para conferir o border-radius, depois pode tirar
-.book-photo {
-  border-radius: 12px;
-  border: 1px solid black;
-}
-
-/* Animação das cartas */
-.book-card-matching {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  opacity: 0;
-  animation: rotateCards 1.5s ease-out forwards;
-}
-
-/* A rotação das cartas */
 @keyframes rotateCards {
   0% {
     transform: rotateY(180deg);
@@ -89,9 +44,111 @@
   font-size: 2rem;
   text-align: center;
   opacity: 0;
-  animation: matchText 2s ease-out forwards 1.5s; /* Espera a animação das cartas */
+  animation: matchText 2s ease-out forwards 1.5s;
   position: absolute;
-  top: 100%; /* Coloca 100% do tamanho da div acima */
-  margin-top: 50px; /* Coloca 50px abaixo da div books-matched */
+  top: 100%;
+  margin-top: 50px;
   transform: translateY(-50%);
+}
+
+.fireworks {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: url('/assets/fireworks3.gif') center/cover no-repeat;
+  opacity: 1;
+  animation: fadeOut 5s ease-out forwards;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.book-card-matching {
+  position: relative;
+  width: 100%;
+  height: 250px;
+}
+
+.books-matched {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.book-card-photo {
+  position: absolute;
+  width: 150px;
+  height: 250px;
+  opacity: 0;
+  transition: transform 1s ease-out, opacity 1s;
+}
+
+.book-left, .book-right {
+
+  width: 150px;
+  height: 250px;
+}
+
+.book-photo {
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.match-active .book-left {
+  transform: translateX(-60%);
+  opacity: 1;
+}
+
+.match-active .book-right {
+  transform: translateX(60%);
+  opacity: 1;
+}
+
+.matching-title {
+  color: #FFFCFC;
+  text-align: center;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.top-matching {
+  color: #FFFCFC;
+  text-align: center;
+  font-size: 25px;
+  font-weight: bold;
+  margin-top: 20px;
+  line-height: 1.5;
+}
+
+.matching-box {
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.matching-button-chat {
+  display: flex;  /* Garante que o container use o modelo flexbox */
+  justify-content: center;  /* Centraliza horizontalmente */
+  align-items: center;  /* Centraliza verticalmente */
+  width: 100%;  /* Assegura que o contêiner ocupe toda a largura */
+  height: 100%;  /* Garante que o contêiner tenha altura suficiente */
+}
+
+.matching-button-chat button {
+  margin: 0;  /* Remove margens, caso haja alguma afetando a centralização */
 }
