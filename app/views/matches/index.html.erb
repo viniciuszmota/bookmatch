@@ -79,7 +79,9 @@
                     <% if last_message.present? %>
                       <p class="message-content-index">
                         <i class="fa-solid <%= last_message.user == current_user ? 'fa-share' : 'fa-reply' %>"></i>
-                        <%= last_message.content %>
+                        
+                        <%= last_message.content.length > 17 ? last_message.content[0, 17] + "..." : last_message.content[0, 20] %>
+
                       </p>
                     <% else %>
                       <p>
