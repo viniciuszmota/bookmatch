@@ -35,7 +35,7 @@
               <%= image_tag "no-image.jpg", width: 150, height: 150,
                 alt: "Sem foto disponível", class: "avatar-index-photo" %>
             <% end %>
-            <p><%= second_user.full_name %></p>
+            <p><%= second_user.full_name.split.first %></p>
           </div>
         <% end %>
       <% end %>
@@ -74,12 +74,12 @@
 
                 <div class="relative-positioning">
                   <div class="index-info-message">
-                    <h3><%= second_user.full_name %></h3>
+                    <h3><%= second_user.full_name.split.first %></h3>
                     <% last_message = match.messages.order(created_at: :desc).limit(1).take %>
                     <% if last_message.present? %>
                       <p class="message-content-index">
                         <i class="fa-solid <%= last_message.user == current_user ? 'fa-share' : 'fa-reply' %>"></i>
-                        
+
                         <%= last_message.content.length > 17 ? last_message.content[0, 17] + "..." : last_message.content[0, 20] %>
 
                       </p>
