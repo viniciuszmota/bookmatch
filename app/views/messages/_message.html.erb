@@ -1,6 +1,6 @@
 
 
-<div class="message-<%= if message.user == @user then "sent" else "received" end %>" id="message-<%= message.id %>">
+<div class="message-<%= if message.user == @user then "sent" else "received" end %>" id="message-<%= message.id %>" data-controller="message" data-message-user-id-value="<%= message.user.id %>">
   <div class="message-full-name">
   <small>
     <strong><%= message.user.full_name %></strong>
