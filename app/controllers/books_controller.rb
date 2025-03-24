@@ -98,6 +98,7 @@ class BooksController < ApplicationController
 
   def index
     @books = current_user.books
+    @book = Book.all
   end
 
   def new
@@ -135,7 +136,7 @@ class BooksController < ApplicationController
 
   def update
     if @book.update(book_params)
-      redirect_to book_path(@book), notice: "Livro atualizado com sucesso."
+      redirect_to books_path, notice: "Livro atualizado com sucesso."
     else
       render :edit, status: :unprocessable_entity
     end
