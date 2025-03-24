@@ -31,7 +31,6 @@
     <p class="top"><%= current_user.full_name.split.map(&:capitalize).join(' ') %></p>
   </div>
 
-  <div class="top-general-container">
     <div class="top-white-container index-books-buttons">
       <div class="profile-button">
         <%= link_to books_path, class: "profile-button-my-books-link" do %>
@@ -58,6 +57,7 @@
         <% end %>
       </div>
     </div>
+
 
     <div class="form">
       <%= simple_form_for @book do |f| %>
