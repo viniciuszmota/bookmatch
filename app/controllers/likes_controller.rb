@@ -46,26 +46,30 @@ class LikesController < ApplicationController
 
     if @like.save
       Rails.logger.info "Like salvo: #{@like.inspect}"
-      book_owner_id = @like.book.user_id
-      second_like = Like.find_by(user_id: book_owner_id, book_id: current_user.books.pluck(:id))
-      Rails.logger.info "Segundo like encontrado: #{second_like.inspect}" if second_like
-
-      if second_like && @like.liked_action && second_like.liked_action
-        @match = Match.create(first_like_id: @like.id, second_like_id: second_like.id)
-        if @match.persisted?
-          Rails.logger.info "Match criado com sucesso: #{@match.inspect}"
-          flash[:notice] = "Match registrado com sucesso!"
-          redirect_to matching_path and return
-        else
-          Rails.logger.error "Falha ao criar match: #{@match.errors.full_messages}"
-          flash[:alert] = "Erro ao registrar match."
+      
+      if @like.liked_action
+        book_owner_id = @like.book.user_id
+        second_likes = Like.where(user_id: book_owner_id, book_id: current_user.books.pluck(:id), liked_action: true)
+        Rails.logger.info "Likes encontrados: #{second_likes.inspect}" if second_likes.any?
+        second_likes.each do |second_like|
+          if second_like  && second_like.liked_action
+            @match = Match.create(first_like_id: @like.id, second_like_id: second_like.id)
+            if @match.persisted?
+              Rails.logger.info "Match criado com sucesso: #{@match.inspect}"
+              flash[:notice] = "Match registrado com sucesso!"
+              redirect_to matching_path and return
+            end
+          else
+            Rails.logger.error "Falha ao criar match: #{@match.errors.full_messages}"
+            flash[:alert] = "Erro ao registrar match."
+          end
         end
       end
     else
       Rails.logger.error "Falha ao salvar like: #{@like.errors.full_messages}"
       flash[:alert] = "Erro ao registrar o like."
     end
-
+    
     redirect_to matchmaking_path
   end
 
