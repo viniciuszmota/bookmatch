@@ -31,7 +31,7 @@
     <p class="top"><%= current_user.full_name.split.map(&:capitalize).join(' ') %></p>
   </div>
 
-  
+
     <div class="top-white-container index-books-buttons">
       <div class="profile-button">
         <%= link_to books_path, class: "profile-button-my-books-link" do %>
@@ -102,7 +102,7 @@
         </div>
       <% end %>
 
-      <%= link_to "Deletar livro", book_path(@book),
+      <%= button_to "Deletar livro", book_path(@book),
          data: { turbo: false },
          method: :delete,
          class: "cancel-button-link" %>
