@@ -45,14 +45,21 @@
   border-top-right-radius: 10px; /* Radius no canto superior direito */
 }
 
-#show-book-info{
-  position:absolute;
-  bottom: -48px;
+#show-book-info {
+  position: absolute;
+  bottom: -75px;
   height: 132px;
-  border-top-right-radius: 10px; /* Radius no canto superior direito */
-  border-top-left-radius: 10px; /* Radius no canto superior esquerdo */
-  background-color: rgba(0, 0, 0, 0.731);
+  border-radius: 12px;
+  background-color: rgba(251, 247, 247, 0.445); /* Ajuste a opacidade para controlar a transparência */
+  backdrop-filter: blur(10px); /* Aplica o efeito de desfoque ao fundo */
+  -webkit-backdrop-filter: blur(10px); /* Compatibilidade com navegadores WebKit (Safari) */
   padding: 10px;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
 }
 
 #show-books-bottom-buttons{
@@ -118,8 +125,24 @@
 }
 
 
+@keyframes shake {
+  0% { transform: translate(0, 0); }
+  10% { transform: translate(-3px, 3px); }
+  20% { transform: translate(3px, -3px); }
+  30% { transform: translate(-3px, 3px); }
+  40% { transform: translate(3px, -3px); }
+  50% { transform: translate(-2px, 2px); }
+  60% { transform: translate(2px, -2px); }
+  70% { transform: translate(-1px, 1px); }
+  80% { transform: translate(1px, -1px); }
+  90% { transform: translate(0px, 0px); }
+  100% { transform: translate(0, 0); }
+}
+
 .book-photo-matchmaking {
   border-radius: 12px;
+  box-shadow: -4px 4px 8px #222222;
+  animation: shake 5s ease-in-out;
 }
 
 .icon-button {
