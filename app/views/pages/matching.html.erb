@@ -48,15 +48,32 @@
         </div>
       </div>
     </div>
+
     <div class="matching-box">
-      <div class="top-matching">MATCH!</div>
+      <div class="top-matching">🎉⚡MATCH!⚡🎉</div>
       <div class="matching-title">Os astros se alinharam!</div>
       <div class="matching-title">Seu próximo livro está esperando por você!</div>
-      <div class="matching-button-chat">
-        <%= link_to "Chat", match_path(last_match), class: "link-to-chat" %>
-      </div>
+      <div class="matching-button-chat"></div>
     </div>
   <% else %>
     <div class="matching-title">Você ainda não tem matches.</div>
   <% end %>
+
+  <div id="footer-options">
+    <div class="footer-icons">
+      <%= link_to books_path do %>
+        <%= image_tag "my-books", alt: "Meus Livros" %>
+      <% end %>
+    </div>
+    <div class="footer-icons">
+      <%= link_to matchmaking_path do %>
+        <%= image_tag "mmaking.png", alt: "Matches" %>
+      <% end %>
+    </div>
+    <div class="footer-icons">
+      <%= link_to matches_path do %>
+        <%= image_tag "chat.png", alt: "Chat" %>
+      <% end %>
+    </div>
+  </div>
 </div>
