@@ -40,7 +40,7 @@
   }
 }
 
-/* Animação do texto "MATCH!" */
+
 .book-card-matching h2 {
   font-size: 2rem;
   text-align: center;
@@ -143,13 +143,47 @@
 }
 
 .matching-button-chat {
-  display: flex;  /* Garante que o container use o modelo flexbox */
-  justify-content: center;  /* Centraliza horizontalmente */
-  align-items: center;  /* Centraliza verticalmente */
-  width: 100%;  /* Assegura que o contêiner ocupe toda a largura */
-  height: 100%;  /* Garante que o contêiner tenha altura suficiente */
+  display: flex;  
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
 }
 
 .matching-button-chat button {
-  margin: 0;  /* Remove margens, caso haja alguma afetando a centralização */
+  margin: 0;
 }
+
+.fireworks-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+.firework {
+  position: absolute;
+  background: url('/assets/fireworks3.gif') center/cover no-repeat;
+  opacity: 1;
+  animation: fadeOut 5s ease-out forwards;
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+
+.firework:nth-child(1) { width: 200px; height: 200px; top: 10%; left: 20%; }
+.firework:nth-child(2) { width: 150px; height: 150px; top: 30%; left: 50%; }
+.firework:nth-child(3) { width: 250px; height: 250px; top: 50%; left: 70%; }
+.firework:nth-child(4) { width: 180px; height: 180px; top: 80%; left: 40%; }
+.firework:nth-child(5) { width: 220px; height: 220px; top: 60%; left: 10%; }
+.firework:nth-child(6) { width: 160px; height: 160px; top: 20%; left: 80%; }

@@ -29,7 +29,7 @@
 
     <div class="book-card-matching show-card" data-matchmaking-target="bookCardMatching">
       <div class="books-matched">
-        <!-- Livro do usuário logado -->
+  
         <div class="book-card-photo book-left">
           <% if user_like.book.photos.attached? %>
             <%= image_tag user_like.book.photos.first, class: "book-photo" %>
@@ -38,7 +38,7 @@
           <% end %>
         </div>
 
-        <!-- Livro do outro usuário -->
+
         <div class="book-card-photo book-right">
           <% if matched_like.book.photos.attached? %>
             <%= image_tag matched_like.book.photos.first, class: "book-photo" %>
